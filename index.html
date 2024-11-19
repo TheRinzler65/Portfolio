@@ -16,11 +16,11 @@
                     <img src="" alt="Logo à mettre">
                 </a>
                 <ul class="header-menu">
-                    <li><a href="">Accueil</a></li>
-                    <li><a href="">A propos</a></li>
-                    <li><a href="">Compétences</a></li>
-                    <li><a href="">Projets</a></li>
-                    <li><a href="formulaire.html">Contact</a></li>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="index.html#Apropos">A propos</a></li>
+                    <li><a href="index.html#competence">Compétences</a></li>
+                    <li><a href="index.html#projet">Projets</a></li>
+                    <li><a href="#demo" class="test">Me contacter</a></li>
                 </ul>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <h1>Léo GRUET</h1>
             <p>Etudiant | Alternant BTS SIO SISR</p>
         </div>
-        <div class="section">
+        <div class="section" id="Apropos">
             <div class="boxed text-center">
                 <h2>A propos de moi</h2>
                 <div class="flex">
@@ -83,55 +83,91 @@
                 </div>
             </div>
         </div>
-        <div class="section dark">
+        <div class="section dark" id="competence">
             <div class="boxed text-center">
                 <h2>Découvrez mes compétences</h2>
-                <div class="flex">
-                    <div class="block competence">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="block competence">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="block competence">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="block competence">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                    <div class="block competence">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-            </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="boxed text-center">
-                <h2>Mes différents projets</h2>
-                <div class="flex">
-                        <div class="block projet">
-                          <h3>Hack 3ds FR</h3>  
+                <div class="grid-content">
+                    <div class="grid-title-outer">
+                        <div class="grid-title">
+                            <h2>HTML CSS</h2>
                         </div>
-                        <div class="block projet">
-                            <h3>Serveur Discord</h3> 
+                    </div>
+                    <div class="grid-title-outer">
+                        <div class="grid-title">
+                            <h2>Windows & Linux</h2>
                         </div>
-                        <div class="block projet">
-                            <h3></h3> 
-                        </div>
-                        <div class="block projet">
-                            <h3></h3> 
-                        </div>
-                        <div class="block projet">
-                            <h3></h3> 
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="section" id="projet">
+            <div class="boxed text-center">
+                <h2>Mes différents projets</h2>
+                <div class="grid-content-2">
+                    <div class="grid-title-outer-2">
+                        <a href="" class="grid-link-2">
+                            <div class="grid-title-2">
+                                <h2>Hack 3DS FR</h2>
+                                <img src="" alt="">
+                                <p>test</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid-title-outer-2">
+                        <a href="" class="grid-link-2">
+                            <div class="grid-title-2">
+                                <h2></h2>
+                                <img src="" alt="">
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid-title-outer-2">
+                        <a href="" class="grid-link-2">
+                            <div class="grid-title-2">
+                                <h2></h2>
+                                <img src="" alt="">
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="demo" class="modal">
+            <div class="modal_content">
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1>Formulaire de contact</h1>
+                        <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+                           <table class="form-style">
+                              <tr>
+                                 <td><label>Votre nom <span class="required">*</span></label></td>
+                                 <td><input type="text" name="name" class="long"/><span class="error" id="errorname"></span></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Votre adresse e-mail <span class="required">*</span></label></td>
+                                 <td><input type="email" name="email" class="long"/><span class="error" id="erroremail"></span></td>
+                              </tr>
+                              <tr>
+                                 <td><label>Message <span class="required">*</span></label></td>
+                                 <td><textarea name="message" class="long field-textarea"></textarea><span class="error" id="errormsg"></span></td>
+                              </tr>
+                              <tr>
+                                 <td></td>
+                                 <td>
+                                    <input type="submit" value="Envoyer">
+                                    <input type="reset" value="Réinitialiser">
+                                 </td>
+                              </tr>
+                           </table>
+                        </form>
+                    </div>
+                </div>
+              <a href="#" class="modal_close">&times;</a>
+            </div>
+          </div>
         <footer>
             <div class="socials-container">
                 <a href="https://github.com" target="_blank">

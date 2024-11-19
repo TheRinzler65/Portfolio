@@ -281,7 +281,7 @@ h1{
     text-align: center;
   } 
   .form-style{
-    margin:10px auto;
+    margin: 10px auto;
     width: 400px;
     padding: 20px 12px 10px 20px;
     font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -294,8 +294,8 @@ h1{
   } 
   .form-style label{
     margin:0 0 3px 0;
-    padding:0px;
-    display:block;
+    padding: 0px;
+    display: block;
     font-weight: bold;
   } 
   .form-style .required{
@@ -309,9 +309,9 @@ h1{
   }
   .form-style input[type=submit]:hover, .form-style input[type=reset]:hover{
     background: #4eb5f1;
-    box-shadow:none;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
   }
   .form-style .field-textarea{
     height: 100px;

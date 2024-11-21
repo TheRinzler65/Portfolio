@@ -1,21 +1,14 @@
-const btn = document.getElementById("button")
-
-document.getElementById("form").addEventListener("submit", function (event) {
-  event.preventDefault()
-
-  btn.value = "Sending..."
-
-  const serviceID = "service_wci7zod"
-  const templateID = "template_ogbleyg"
-
-  emailjs.sendForm(serviceID, templateID, this).then(
-    () => {
-      btn.value = "Send Email"
-      alert("Sent!")
-    },
-    (err) => {
-      btn.value = "Send Email"
-      alert(JSON.stringify(err))
-    },
-  )
-})
+(function() {
+    emailjs.init("roQC_VmZz_8Qj02xL");
+})();
+window.onload = function() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('service_wci7zod', 'template_ogbleyg', this)
+          .then(() => {
+              console.log('Mail envoyé avec succès!');
+          }, (error) => {
+              console.log("Le mail n'a pas été envoyé...", error);
+          });
+  });
+}

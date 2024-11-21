@@ -7,7 +7,8 @@
     <meta type="description" content="Ceci est mon Portfolio">
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">emailjs.init('8lqP9xfMfIejN5LUB')</script>
+    <script src="js/modal.js"></script>
+    <script src="js/request.js"></script>
 </head>
 <body>
     <header>
@@ -157,16 +158,21 @@
 <div id="demo" class="modal">
     <div class="modal_content">
         <h1>Formulaire de contact </h1>
-        <form id="form">
+        <form id="contact-form">
             <div class="field">
-              <label for="from_name">from_name</label>
-              <input type="text" name="from_name" id="from_name">
+                <input type="hidden" name="contact_number" value="697483">
+                <label>Nom</label>
+                <input type="text" name="from_name">
             </div>
             <div class="field">
-              <label for="message">message</label>
-              <input type="text" name="message" id="message">
+                <label>Email</label>
+                <input type="email" name="from_email">
             </div>
-            <input type="submit" id="button" value="Send Email" >
+            <div class="field">
+                <label>Message</label>
+                <textarea name="message"></textarea> 
+            </div>
+            <input type="submit" value="Envoyer">
           </form>
       <a href="#" class="modal_close">&times;</a>
     </div>

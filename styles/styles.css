@@ -103,6 +103,32 @@ p{
     max-width: 1280px;
     margin-inline: auto;
 }
+.boxed h2{
+    margin-bottom: 70px;
+}
+.block{
+    margin: 10px;
+}
+.parcours{
+    position: relative;
+    background-color: rgb(243, 243, 239);
+    padding: 5rem;
+    text-align: center;
+    max-width: 500px;
+}
+.parcours ul li{
+    list-style-type: none;
+}
+.etablissement{
+    position: relative;
+    background-color: rgb(218, 218, 216);
+    padding: 5rem;
+    text-align: center;
+    max-width: 500px;
+}
+.etablissement ul li{
+    list-style-type: none;
+}
 .flex{
     display: flex;
 }

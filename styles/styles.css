@@ -80,6 +80,11 @@ header{
     transform: translate(-50%, -50%);
     text-align: center;
 }
+.slider-content p{
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-color-dark);
+}
 h1{
     font-size: 5rem;
     color: var(--text-color-dark)
@@ -90,11 +95,6 @@ h2{
 p{
     font-size: 1.5rem;
     line-height: 1.5em;
-}
-.slider-content p{
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--text-color-dark);
 }
 .section{
     padding: 100px 0;

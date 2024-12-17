@@ -115,9 +115,28 @@ p{
     padding: 5rem;
     text-align: center;
     max-width: 500px;
+    border-radius: 20px;
 }
 .parcours ul li{
     list-style-type: none;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.parcours h3{
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+.parcours h4{
+    margin-bottom: 10px;
+    text-align: left;
+}
+.parcours p{
+    font-size: 18px;
+    text-align: left;
+}
+.date{
+    text-align: right;
 }
 .etablissement{
     position: relative;
@@ -125,9 +144,21 @@ p{
     padding: 5rem;
     text-align: center;
     max-width: 500px;
+    border-radius: 20px;
 }
 .etablissement ul li{
     list-style-type: none;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.etablissement h3{
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+.etablissement p{
+    font-size: 18px;
+    text-align: left;
 }
 .flex{
     display: flex;

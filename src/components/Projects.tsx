@@ -2,7 +2,7 @@ import Title from "./Title"
 
 import img3 from '../assets/projects/3.png';
 
-import { Github, Video } from "lucide-react";
+import { Github, Link } from "lucide-react";
 
 
 const projects = [
@@ -10,7 +10,7 @@ const projects = [
         id: 1,
         title: 'Projet Portfolio',
         description: 'Projet de début d\'année au centre de formation qui nous sera utile pour l\'examen de fin de deuxième année mais aussi pour de future embauche.',
-        technologies: ['Lycée', 'Tag 2', ''],
+        technologies: ['React', '', ''],
         demoLink: '#',
         repoLink: '#',
         //image: img1,
@@ -26,11 +26,11 @@ const projects = [
     },
     {
         id: 3,
-        title: 'Inazuma Eleven GO Galaxy FR',
-        description: 'Un projet qui à pour but de traduire le jeu en Français à 100%, faisant parti de la liste des jeux n\'ayant pas de traduction officiel sur la Nintendo 3ds.',
-        technologies: ['Jeu', 'Traduction', 'Personel'],
-        demoLink: '#',
-        repoLink: '#',
+        title: 'Site web Inazuma Eleven GO Galaxy FR',
+        description: 'Un projet qui à pour but de traduire le jeu en Français à 100%, ceci est le site web de présentation du mod.',
+        technologies: ['Jeu', 'Traduction', 'Modding'],
+        demoLink: 'https://iegogalaxy.fr',
+        repoLink: 'https://github.com/Stellar-Project/iegogalaxy.fr',
         image: img3,
     },
 ];
@@ -64,7 +64,7 @@ const Projects = () => {
                         <div className="flex">
                             <a className="btn btn-accent w-2/3" href={project.demoLink}>
                                 Lien
-                                <Video className="w-4" />
+                                <Link className="w-4" />
                             </a>
 
                             <a className="btn btn-neutral w-1/3 ml-2" href={project.repoLink}>

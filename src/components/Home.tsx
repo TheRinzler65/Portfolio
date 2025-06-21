@@ -12,7 +12,10 @@ const Home = () => {
                 </h1>
 
                 <p className="my-4 text-md text-center md:text-left">
-                    Etudiant | Alternant BTS SIO SISR <br />
+                    Etudiant | Alternant BTS SIO SISR <br /><br />
+                    Âgé de 20 ans, je poursuis actuellement un BTS SIO<br />
+                    en alternance au lycée Pasteur Mont Roland à Dole (39100).<br /><br />
+                    Passionné par l'informatique, je suis de près les dernières nouveautés et évolutions du secteur.
                 </p>
                 <a href="" className=" btn btn-accent md:w-fit">
                     <Mail className="w-5 h-5" />

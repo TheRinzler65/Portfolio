@@ -6,6 +6,7 @@ import imgREACT from "../assets/techno/react.png";
 import imgHTML from "../assets/techno/html.png";
 
 // import img from "../assets/img/img.png";
+import pasteur from "../assets/pasteur_favicon.png";
 
 
 
@@ -20,36 +21,46 @@ const skills = [
 const experiences = [
     {
         id: 1,
-        role: "",
-        company: "",
-        period: "",
+        role: "BTS SIO (en cours)",
+        company: "Lycée Pasteur Mont Roland - Dole",
+        period: "2024 - 2026",
         description: [
-            "",
-            "",
+            "Redoublement en BTS SIO (Services Informatiques aux Organisations)",
+            "Option A SISR (Solutions d'Infrastructure, Systèmes et Réseaux) en Alternance",
         ],
-        //image: google,
+        image: pasteur,
     },
     {
         id: 2,
-        role: "",
-        company: "",
-        period: "",
+        role: "BTS CIEL",
+        company: "Lycée Saint-Aubin Lasalle - Angers",
+        period: "2023 - 2024",
         description: [
-            "",
-            "",
+            "1ère année BTS CIEL",
+            "(Cybersecurité Informatiques Réseaux et Electronique)",
         ],
-       // image: meta,
+        image: pasteur,
     },
     {
         id: 3,
-        role: "",
-        company: "",
-        period: "",
+        role: "Bac Professionnel SN",
+        company: "Lycée Saint Joseph - Tahiti",
+        period: "2020 - 2023",
         description: [
-            "",
-            "",
+            "Redoublement en Bac Pro SN",
+            "1 années Bac Professionnel Système Numérique Option C",
+            "Mention Bien au Bac",
         ],
-       // image: amazon,
+    },
+        {
+        id: 4,
+        role: "Bac Professionnel MELEC",
+        company: "Lycée Chevrollier - Angers",
+        period: "2019 - 2020",
+        description: [
+            "Seconde Bac Professionnel MELEC",
+            "(Métier de l'électricité et de ses environnements connectés)",
+        ],
     },
 ];
 

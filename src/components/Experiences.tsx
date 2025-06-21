@@ -4,6 +4,8 @@ import imgCSS from "../assets/techno/css.png";
 import imgJS from "../assets/techno/js.png";
 import imgREACT from "../assets/techno/react.png";
 import imgHTML from "../assets/techno/html.png";
+import imgLinux from "../assets/techno/linux.png";
+import imgWindows from "../assets/techno/Windows.png";
 
 // import img from "../assets/img/img.png";
 import pasteur from "../assets/pasteur_favicon.png";
@@ -15,6 +17,8 @@ const skills = [
     { id: 2, name: "CSS", image: imgCSS },
     { id: 3, name: "JavaScript", image: imgJS },
     { id: 4, name: "React", image: imgREACT },
+    { id: 5, name: "Linux", image: imgLinux },
+    { id: 6, name: "Windows", image: imgWindows },
 ];
 
 
@@ -48,7 +52,7 @@ const experiences = [
         period: "2020 - 2023",
         description: [
             "Redoublement en Bac Pro SN",
-            "1 années Bac Professionnel Système Numérique Option C",
+            "3 années en Bac Professionnel Système Numérique Option C",
             "Mention Bien au Bac",
         ],
     },

@@ -1,63 +1,37 @@
 import Title from "./Title"
 
-//import img1 from '../assets/projects/1.png';
+import img3 from '../assets/projects/3.png';
+
 import { Github, Video } from "lucide-react";
 
 
 const projects = [
     {
         id: 1,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
+        title: 'Projet Portfolio',
+        description: 'Projet de début d\'année au centre de formation qui nous sera utile pour l\'examen de fin de deuxième année mais aussi pour de future embauche.',
+        technologies: ['Lycée', 'Tag 2', ''],
         demoLink: '#',
         repoLink: '#',
         //image: img1,
     },
     {
         id: 2,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
+        title: 'Projet Send It',
+        description: 'Projet que nous effectuons pendant la formation, qui est une "copie" de Wetransfert mais que l\'on met en place sur le centre de formation.',
+        technologies: ['Serveur', 'Réseau', 'Lycée'],
         demoLink: '#',
         repoLink: '#',
         //image: img2,
     },
     {
         id: 3,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
+        title: 'Inazuma Eleven GO Galaxy FR',
+        description: 'Un projet qui à pour but de traduire le jeu en Français à 100%, faisant parti de la liste des jeux n\'ayant pas de traduction officiel sur la Nintendo 3ds.',
+        technologies: ['Jeu', 'Traduction', 'Personel'],
         demoLink: '#',
         repoLink: '#',
-       // image: img3,
-    },
-    {
-        id: 4,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
-        demoLink: '#',
-        repoLink: '#',
-       // image: img4,
-    },
-    {
-        id: 5,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
-        demoLink: '#',
-        repoLink: '#',
-        //image: img5,
-    },
-    {
-        id: 6,
-        title: 'Projet 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur',
-        technologies: ['Tag 1', 'Tag 2', 'Tag 3'],
-        demoLink: '#',
-        repoLink: '#',
-       // image: img6,
+        image: img3,
     },
 ];
 
@@ -89,7 +63,7 @@ const Projects = () => {
                         </div>
                         <div className="flex">
                             <a className="btn btn-accent w-2/3" href={project.demoLink}>
-                                Demo
+                                Lien
                                 <Video className="w-4" />
                             </a>
 

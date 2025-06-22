@@ -1,4 +1,5 @@
-import { Mail } from "lucide-react"
+import ContactForm from './ContactForm';
+
 import img from '../assets/img.jpg'
 
 const Home = () => {
@@ -17,10 +18,13 @@ const Home = () => {
                     en alternance au lycée Pasteur Mont Roland à Dole (39100).<br /><br />
                     Passionné par l'informatique, je suis de près les dernières nouveautés et évolutions du secteur.
                 </p>
-                <a href="" className=" btn btn-accent md:w-fit">
+                {/* <a href="" className=" btn btn-accent md:w-fit">
                     <Mail className="w-5 h-5" />
                     Contactez-moi
-                </a>
+                </a> */}
+                <div className="my-4 text-md text-center md:text-left">
+                    <ContactForm />
+                </div>
 
             </div>
 

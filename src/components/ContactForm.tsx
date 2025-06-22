@@ -33,11 +33,11 @@ const ContactForm = () => {
             <form ref={formRef} onSubmit={sendEmail}>
                 <div className="mb-4">
                     <label className="block text-white text-sm font-semibold mb-2">Votre nom</label>
-                    <input name="user_name" className="w-full px-3 py-2 border rounded-lg bg-gray-800 focus:border-blue-500" required placeholder="John Doe" type="text" />
+                    <input name="name" className="w-full px-3 py-2 border rounded-lg bg-gray-800 focus:border-blue-500" required placeholder="John Doe" type="text" />
                 </div>
                 <div className="mb-4">
                     <label className="block text-white text-sm font-semibold mb-2">Votre email</label>
-                    <input name="user_email" className="w-full px-3 py-2 border rounded-lg bg-gray-800 focus:border-blue-500" required placeholder="john@example.com" type="email" />
+                    <input name="email" className="w-full px-3 py-2 border rounded-lg bg-gray-800 focus:border-blue-500" required placeholder="john@example.com" type="email" />
                 </div>
                 <div className="mb-4">
                     <label className="block text-white text-sm font-semibold mb-2">Votre message</label>

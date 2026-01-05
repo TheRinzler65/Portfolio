@@ -1,42 +1,58 @@
-import ContactForm from './ContactForm';
-
-import img from '../assets/img.jpg'
+import img from "../assets/img.jpg";
+import { Mail } from "lucide-react";
 
 const Home = () => {
-    return (
-        <div id="Home" className="flex flex-col-reverse md:flex-row justify-center items-center md:my-32 my-10">
+  const openModal = () => {
+    const modal = document.getElementById("contact_modal") as HTMLDialogElement;
+    if (modal) {
+      modal.showModal();
+    }
+  };
 
-            <div className="flex flex-col ">
-                <h1 className="text-5xl md:text-6xl font-bold text-center md:text-left mt-4 md:mt-0">
-                    Bonjour, <br /> je suis {" "}
-                    <span className="text-accent">Léo</span>
-                </h1>
+  return (
+    <div
+      id="Home"
+      className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 py-10 md:py-32 px-4 max-w-7xl mx-auto"
+    >
+      <div className="flex flex-col md:w-1/2">
+        <h1 className="text-5xl md:text-7xl font-bold text-center md:text-left mb-6">
+          Bonjour, <br /> je suis <span className="text-accent">Léo</span>
+        </h1>
 
-                <p className="my-4 text-md text-center md:text-left">
-                    Etudiant | Alternant BTS SIO SISR <br /><br />
-                    Âgé de 20 ans, je poursuis actuellement un BTS SIO<br />
-                    en alternance au lycée Pasteur Mont Roland à Dole (39100).<br /><br />
-                    Passionné par l'informatique, je suis de près les dernières nouveautés et évolutions du secteur.
-                </p>
-                {/* <a href="" className=" btn btn-accent md:w-fit">
-                    <Mail className="w-5 h-5" />
-                    Contactez-moi
-                </a> */}
-                <div className="my-4 text-md text-center md:text-left">
-                    <ContactForm />
-                </div>
+        <p className="text-lg md:text-xl text-center md:text-left mb-8 opacity-90 leading-relaxed">
+          <span className="font-semibold block mb-2">
+            Etudiant | Alternant BTS SIO SISR
+          </span>
+          Âgé de 20 ans, je poursuis actuellement un BTS SIO en alternance au
+          lycée Pasteur Mont Roland à Dole (39100).
+          <br className="hidden md:block" />
+          Passionné par l'informatique, je suis de près les dernières nouveautés
+          et évolutions du secteur.
+        </p>
 
-            </div>
-
-            <div className="md:ml-60">
-                <img src={img} alt="" className="w-96 h-96 object-cover border-8 border-accent shadow-xl"
-                    style={{
-                        borderRadius: "30% 70% 70% 30% / 67% 62% 38% 33%"
-                    }}
-                />
-            </div>
+        <div className="flex justify-center md:justify-start">
+          <button
+            onClick={openModal}
+            className="btn btn-accent text-white font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 transition-transform flex items-center gap-2"
+          >
+            <Mail className="w-5 h-5" />
+            Contactez-moi
+          </button>
         </div>
-    )
-}
+      </div>
 
-export default Home
+      <div className="md:w-1/2 flex justify-center items-center">
+        <img
+          src={img}
+          alt="Portrait Léo"
+          className="w-72 h-72 md:w-96 md:h-96 object-cover border-8 border-accent shadow-2xl"
+          style={{
+            borderRadius: "30% 70% 70% 30% / 67% 62% 38% 33%",
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Home;

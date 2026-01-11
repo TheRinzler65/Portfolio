@@ -1,40 +1,7 @@
 import Title from "./Title";
-// import img1 from '../assets/projects/1.png';
-// import img2 from '../assets/projects/2.png';
-// import img3 from '../assets/projects/3.png';
-import { Github, Link } from "lucide-react";
-
-const projects = [
-  {
-    id: 1,
-    title: "Projet Portfolio",
-    description:
-      "Projet de début d'année au centre de formation qui nous sera utile pour l'examen de fin de deuxième année mais aussi pour de future embauche.",
-    technologies: ["React", "Typescript", "Tailwind CSS"],
-    demoLink: "#",
-    repoLink: "#",
-    // image: img1,
-  },
-  {
-    id: 2,
-    title: "Projet Send It",
-    description:
-      'Projet que nous effectuons pendant la formation, qui est une "copie" de Wetransfert mais que l\'on met en place sur le centre de formation.',
-    technologies: ["Serveur", "Réseau", "Lycée"],
-    demoLink: "#",
-    repoLink: "#",
-    // image: img2,
-  },
-  // {
-  //     id: 3,
-  //     title: 'Site web Inazuma Eleven GO Galaxy FR',
-  //     description: 'Un projet qui à pour but de traduire le jeu en Français à 100%, ceci est le site web de présentation du mod.',
-  //     technologies: ['Jeu', 'Traduction', 'Modding'],
-  //     demoLink: 'https://iegogalaxy.fr',
-  //     repoLink: 'https://github.com/Stellar-Project/iegogalaxy.fr',
-  //     // image: img3,
-  // },
-];
+import { projects } from "../data/projects";
+import { Eye, FolderOpen, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   return (
@@ -56,44 +23,36 @@ const Projects = () => {
 
             <div className="p-5 flex flex-col flex-grow">
               <h1 className="text-xl font-bold mb-2">{project.title}</h1>
-              <p className="text-sm opacity-90 mb-4 flex-grow">
+              <p className="text-sm opacity-90 mb-4 flex-grow line-clamp-3">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="badge badge-accent badge-outline text-xs md:text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3 mt-auto">
-                <a
-                  className="btn btn-accent flex-1 text-white"
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lien
-                  <Link className="w-4 h-4 ml-1" />
-                </a>
-
-                <a
-                  className="btn btn-neutral w-14"
-                  href={project.repoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-              </div>
+              <Link
+                to={`/project/${project.id}`}
+                className="btn btn-accent w-full text-white mt-auto gap-2"
+              >
+                <Eye className="w-4 h-4" />
+                Voir le détail
+              </Link>
             </div>
           </div>
         ))}
+
+        <Link
+          to="/divers"
+          className="bg-base-200 border-2 border-dashed border-base-content/20 rounded-xl shadow-sm flex flex-col items-center justify-center p-10 hover:border-accent hover:bg-base-300 transition-all cursor-pointer group min-h-[300px]"
+        >
+          <div className="w-20 h-20 rounded-full bg-base-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
+            <FolderOpen className="w-10 h-10 text-accent" />
+          </div>
+          <h3 className="text-2xl font-bold mb-2">Projets Divers</h3>
+          <p className="text-center opacity-70 mb-6">
+            Scripts, configurations perso, tests...
+          </p>
+          <span className="btn btn-ghost group-hover:text-accent gap-2">
+            Tout voir <ArrowRight className="w-4 h-4" />
+          </span>
+        </Link>
       </div>
     </div>
   );

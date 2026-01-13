@@ -1,5 +1,4 @@
 import Title from "./Title";
-import img from "../assets/img.jpg";
 import { CalendarSync, LetterText, Paintbrush } from "lucide-react";
 
 const aboutSections = [
@@ -30,7 +29,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-10 mt-8">
         <div className="hidden md:block">
           <img
-            src={img}
+            src="assets/profile.jpg"
             alt="A propos de moi"
             className="w-80 h-96 object-cover rounded-xl shadow-lg"
           />

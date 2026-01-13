@@ -1,21 +1,12 @@
 import Title from "./Title";
 
-import imgCSS from "../assets/techno/css.png";
-import imgJS from "../assets/techno/js.png";
-import imgREACT from "../assets/techno/react.png";
-import imgHTML from "../assets/techno/html.png";
-import imgLinux from "../assets/techno/linux.png";
-import imgWindows from "../assets/techno/Windows.png";
-
-import pasteur from "../assets/pasteur_favicon.png";
-
 const skills = [
-  { id: 1, name: "HTML", image: imgHTML },
-  { id: 2, name: "CSS", image: imgCSS },
-  { id: 3, name: "JavaScript", image: imgJS },
-  { id: 4, name: "React", image: imgREACT },
-  { id: 5, name: "Linux", image: imgLinux },
-  { id: 6, name: "Windows", image: imgWindows },
+  { id: 1, name: "HTML", image: "assets/techno/html.png" },
+  { id: 2, name: "CSS", image: "assets/techno/css.png" },
+  { id: 3, name: "JavaScript", image: "assets/techno/js.png" },
+  { id: 4, name: "React", image: "assets/techno/react.png" },
+  { id: 5, name: "Linux", image: "assets/techno/linux.png" },
+  { id: 6, name: "Windows", image: "assets/techno/windows.png" },
 ];
 
 const experiences = [
@@ -28,7 +19,7 @@ const experiences = [
       "Redoublement en BTS SIO (Services Informatiques aux Organisations)",
       "Option A SISR (Solutions d'Infrastructure, Systèmes et Réseaux) en Alternance",
     ],
-    image: pasteur,
+    image: "assets/pasteur_favicon.png",
   },
   {
     id: 2,
@@ -39,7 +30,7 @@ const experiences = [
       "1ère année BTS CIEL",
       "(Cybersecurité Informatiques Réseaux et Electronique)",
     ],
-    image: pasteur,
+    image: "assets/pasteur_favicon.png",
   },
   {
     id: 3,

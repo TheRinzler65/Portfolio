@@ -1,4 +1,3 @@
-import img from "../assets/img.jpg";
 import { Mail } from "lucide-react";
 
 const Home = () => {
@@ -43,7 +42,7 @@ const Home = () => {
 
       <div className="md:w-1/2 flex justify-center items-center">
         <img
-          src={img}
+          src="assets/profile.jpg"
           alt="Portrait Léo"
           className="w-72 h-72 md:w-96 md:h-96 object-cover border-8 border-accent shadow-2xl"
           style={{

@@ -83,7 +83,7 @@ const ProjectDetails = () => {
 
         <div className="bg-base-200 p-8 rounded-xl shadow-lg">
           <h3 className="text-2xl font-bold mb-6 text-center md:text-left">
-            Architecture & Infrastructure
+            Image du projet
           </h3>
           <img
             src={project.infraImage}

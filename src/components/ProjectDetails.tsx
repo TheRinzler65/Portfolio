@@ -8,6 +8,8 @@ import {
   Network,
   Code,
   FileText,
+  Image as ImageIcon,
+  Layers,
 } from "lucide-react";
 
 const ProjectDetails = () => {
@@ -15,65 +17,103 @@ const ProjectDetails = () => {
   const project = projects.find((p) => p.id === Number(id));
 
   if (!project) {
-    return <div className="text-center mt-20">Projet introuvable</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center flex-col gap-4">
+        <h2 className="text-2xl font-bold">Projet introuvable</h2>
+        <Link to="/" className="btn btn-accent rounded-full text-white">
+          <ArrowLeft className="w-4 h-4" /> Retour à l'accueil
+        </Link>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-base-100 py-10 px-5 md:px-20">
-      <Link to="/" className="btn btn-ghost mb-8 gap-2">
-        <ArrowLeft className="w-5 h-5" />
-        Retour à l'accueil
-      </Link>
+    <div className="min-h-screen bg-base-100 py-12 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-200 hover:bg-base-300 transition-colors mb-10 text-sm font-semibold shadow-sm border border-base-300 w-fit"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Retour à l'accueil
+        </Link>
 
-      <div className="flex flex-col gap-10">
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold text-accent mb-4">
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-base-content mb-6 tracking-tight">
             {project.title}
           </h1>
-          <p className="text-xl opacity-80">{project.description}</p>
+          <p className="text-lg md:text-xl opacity-80 max-w-3xl leading-relaxed">
+            {project.description ||
+              "Aucune description disponible pour ce projet."}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="stats shadow bg-base-200 w-full">
-            <div className="stat">
-              <div className="stat-figure text-accent">
-                <MapPin className="w-8 h-8" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          <div className="lg:col-span-1 flex flex-col gap-6">
+            <div className="bg-base-200 rounded-3xl p-6 shadow-sm border border-base-300 flex items-center gap-5 hover:border-accent/30 transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center border border-accent/20 flex-shrink-0">
+                <MapPin className="w-7 h-7 text-accent" />
               </div>
-              <div className="stat-title">Localisation</div>
-              <div className="stat-value text-lg">{project.location}</div>
+              <div>
+                <h4 className="text-sm font-bold opacity-50 uppercase tracking-wider mb-1">
+                  Localisation
+                </h4>
+                <p className="font-semibold text-base-content leading-snug">
+                  {project.location}
+                </p>
+              </div>
             </div>
-            <div className="stat">
-              <div className="stat-figure text-accent">
-                <Calendar className="w-8 h-8" />
+
+            <div className="bg-base-200 rounded-3xl p-6 shadow-sm border border-base-300 flex items-center gap-5 hover:border-accent/30 transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center border border-accent/20 flex-shrink-0">
+                <Calendar className="w-7 h-7 text-accent" />
               </div>
-              <div className="stat-title">Année</div>
-              <div className="stat-value text-lg">{project.year}</div>
+              <div>
+                <h4 className="text-sm font-bold opacity-50 uppercase tracking-wider mb-1">
+                  Année
+                </h4>
+                <p className="font-semibold text-base-content leading-snug">
+                  {project.year}
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="bg-base-200 p-6 rounded-xl shadow">
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <Users className="w-5 h-5 text-accent" />
-              Équipes
+          <div className="lg:col-span-2 bg-base-200 rounded-3xl p-8 shadow-sm border border-base-300">
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-base-300 pb-4">
+              <Users className="w-6 h-6 text-accent" />
+              Équipes du projet
             </h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h4 className="font-semibold flex items-center gap-2 mb-2 text-sm uppercase tracking-wide opacity-70">
-                  <Network className="w-4 h-4" /> Réseau
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="bg-base-100 p-5 rounded-2xl border border-base-300">
+                <h4 className="font-bold flex items-center gap-2 mb-4 text-accent">
+                  <Network className="w-5 h-5" /> Réseau & Infra
                 </h4>
-                <ul className="list-disc list-inside">
+                <ul className="space-y-2">
                   {project.team.network.map((member, i) => (
-                    <li key={i}>{member}</li>
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 opacity-80 font-medium"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                      {member}
+                    </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <h4 className="font-semibold flex items-center gap-2 mb-2 text-sm uppercase tracking-wide opacity-70">
-                  <Code className="w-4 h-4" /> Développement
+              <div className="bg-base-100 p-5 rounded-2xl border border-base-300">
+                <h4 className="font-bold flex items-center gap-2 mb-4 text-accent">
+                  <Code className="w-5 h-5" /> Développement
                 </h4>
-                <ul className="list-disc list-inside">
+                <ul className="space-y-2">
                   {project.team.dev.map((member, i) => (
-                    <li key={i}>{member}</li>
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 opacity-80 font-medium"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                      {member}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -81,45 +121,77 @@ const ProjectDetails = () => {
           </div>
         </div>
 
-        <div className="bg-base-200 p-8 rounded-xl shadow-lg">
-          <h3 className="text-2xl font-bold mb-6 text-center md:text-left">
-            Image du projet
-          </h3>
-          <img
-            src={project.infraImage}
-            alt="Schéma infrastructure"
-            className="w-full h-auto rounded-lg border border-base-300 shadow-inner bg-white"
-          />
-        </div>
-
-        <div>
-          <h3 className="text-2xl font-bold mb-6">
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 pl-2">
+            <Layers className="w-6 h-6 text-accent" />
             Technologies & Documentation
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {project.technologies.map((tech, index) => (
-              <a
+              <div
                 key={index}
-                href={tech.docLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-base-200 p-4 rounded-xl hover:bg-base-300 transition-colors border border-transparent hover:border-accent group"
+                className="flex items-center gap-4 bg-base-200 p-5 rounded-2xl border border-base-300 hover:border-accent hover:shadow-md transition-all duration-300 group"
               >
-                <img
-                  src={tech.logo}
-                  alt={tech.name}
-                  className="w-10 h-10 object-contain"
-                />
+                {tech.logo && (
+                  <div className="w-12 h-12 rounded-xl bg-base-100 flex items-center justify-center p-2 border border-base-300 group-hover:scale-110 transition-transform flex-shrink-0">
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                )}
                 <div className="flex flex-col">
-                  <span className="font-bold">{tech.name}</span>
-                  <span className="text-xs text-accent flex items-center gap-1 group-hover:underline">
-                    Voir la doc <FileText className="w-3 h-3" />
+                  <span className="font-bold text-base-content">
+                    {tech.name}
                   </span>
+                  {tech.docLink ? (
+                    <a
+                      href={tech.docLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold text-accent flex items-center gap-1 mt-1 hover:underline"
+                    >
+                      Voir la doc <FileText className="w-3 h-3" />
+                    </a>
+                  ) : (
+                    <span className="text-xs font-semibold opacity-40 flex items-center gap-1 mt-1">
+                      Pas de doc <FileText className="w-3 h-3" />
+                    </span>
+                  )}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
+
+        {project.images && project.images.length > 0 && (
+          <div>
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 pl-2">
+              <ImageIcon className="w-6 h-6 text-accent" />
+              Captures d'écran & Galerie
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {project.images.map((img, index) => (
+                <div key={index} className="flex flex-col gap-4 group">
+                  <div className="overflow-hidden rounded-3xl border border-base-300 shadow-sm bg-base-200 relative">
+                    <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
+                    <img
+                      src={img.url}
+                      alt={img.title}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 cursor-zoom-in"
+                    />
+                  </div>
+                  {img.title && (
+                    <p className="text-center font-semibold text-sm opacity-80 bg-base-200 py-3 px-4 rounded-xl border border-base-300 mx-4 -mt-8 relative z-20 shadow-sm">
+                      {img.title}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

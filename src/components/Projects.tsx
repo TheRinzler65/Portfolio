@@ -1,56 +1,79 @@
 import Title from "./Title";
 import { projects } from "../data/projects";
-import { Eye, FolderOpen, ArrowRight } from "lucide-react";
+import { Eye, FolderOpen, ArrowRight, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
   return (
-    <div className="mt-10 py-12 px-4 max-w-7xl mx-auto" id="Projects">
+    <div className="py-16 px-4 max-w-7xl mx-auto" id="Projects">
       <Title title="Mes Projets" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-base-300 rounded-xl shadow-lg flex flex-col hover:shadow-2xl transition-shadow duration-300"
-          >
-            {project.image && (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-56 object-cover rounded-t-xl"
-              />
-            )}
 
-            <div className="p-5 flex flex-col flex-grow">
-              <h1 className="text-xl font-bold mb-2">{project.title}</h1>
-              <p className="text-sm opacity-90 mb-4 flex-grow line-clamp-3">
-                {project.description}
-              </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {projects.map((project) => {
+          const displayImage =
+            project.images && project.images.length > 0
+              ? project.images[0].url
+              : null;
 
-              <Link
-                to={`/project/${project.id}`}
-                className="btn btn-accent w-full text-white mt-auto gap-2"
-              >
-                <Eye className="w-4 h-4" />
-                Voir le détail
-              </Link>
+          return (
+            <div
+              key={project.id}
+              className="group flex flex-col bg-base-200 rounded-[2rem] overflow-hidden border border-base-300 shadow-md hover:shadow-2xl hover:border-accent/50 transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="relative h-60 overflow-hidden bg-base-300">
+                {displayImage ? (
+                  <>
+                    <img
+                      src={displayImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-base-200 via-transparent to-transparent opacity-90"></div>
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-base-content/20 group-hover:text-accent/50 transition-colors duration-500">
+                    <FolderOpen className="w-20 h-20" />
+                  </div>
+                )}
+              </div>
+
+              <div className="p-8 flex flex-col flex-grow relative z-10 -mt-10 bg-base-200 rounded-t-[2rem]">
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition-colors duration-300">
+                  {project.title}
+                </h3>
+
+                <p className="opacity-70 text-sm leading-relaxed mb-8 flex-grow line-clamp-3">
+                  {project.description || "Aucune description disponible."}
+                </p>
+
+                <Link
+                  to={`/project/${project.id}`}
+                  className="btn btn-accent text-white rounded-full w-full gap-2 shadow-sm hover:shadow-accent/40 transition-shadow"
+                >
+                  <Eye className="w-5 h-5" />
+                  Voir le détail
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         <Link
           to="/divers"
-          className="bg-base-200 border-2 border-dashed border-base-content/20 rounded-xl shadow-sm flex flex-col items-center justify-center p-10 hover:border-accent hover:bg-base-300 transition-all cursor-pointer group min-h-[300px]"
+          className="group flex flex-col items-center justify-center bg-base-200/50 rounded-[2rem] p-8 border-2 border-dashed border-base-300 hover:border-accent hover:bg-base-200 transition-all duration-500 min-h-[400px] hover:-translate-y-2"
         >
-          <div className="w-20 h-20 rounded-full bg-base-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
-            <FolderOpen className="w-10 h-10 text-accent" />
+          <div className="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 border border-accent/20">
+            <Terminal className="w-10 h-10 text-accent" />
           </div>
-          <h3 className="text-2xl font-bold mb-2">Projets Divers</h3>
-          <p className="text-center opacity-70 mb-6">
-            Scripts, configurations perso, tests...
+          <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition-colors duration-300">
+            Projets Divers
+          </h3>
+          <p className="text-center opacity-70 mb-8 max-w-xs text-sm leading-relaxed">
+            Scripts d'automatisation, configurations réseau, environnements de
+            test et petits outils personnels.
           </p>
-          <span className="btn btn-ghost group-hover:text-accent gap-2">
-            Tout voir <ArrowRight className="w-4 h-4" />
+          <span className="btn btn-outline btn-accent rounded-full gap-2 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+            Explorer <ArrowRight className="w-5 h-5" />
           </span>
         </Link>
       </div>

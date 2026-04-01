@@ -6,23 +6,39 @@ export const projects = [
       "Portfolio personnel pour présenter mes compétences et projets",
     location: "Lycée Pasteur Mont Roland à Dole, France",
     year: "2024",
-    infraImage: "",
     team: {
       network: ["Léo Gruet"],
       dev: ["Léo Gruet"],
     },
+    images: [
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+    ],
     technologies: [
       {
         name: "HTML",
         logo: "/assets/techno/html.png",
+        docLink: null,
       },
       {
         name: "CSS",
         logo: "/assets/techno/css.png",
+        docLink: null,
       },
       {
         name: "JavaScript",
         logo: "/assets/techno/js.png",
+        docLink: null,
       },
     ],
     demoLink: "#",
@@ -35,7 +51,6 @@ export const projects = [
     description: "Fork de Wetransfer pour le partage de fichiers en local",
     location: "Lycée Pasteur Mont Roland à Dole, France",
     year: "2025",
-    infraImage: "",
     team: {
       network: ["Léo GRUET", "Léo PERNIN"],
       dev: [
@@ -45,6 +60,20 @@ export const projects = [
         "Mathis MOLLIER",
       ],
     },
+    images: [
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+    ],
     technologies: [
       {
         name: "Proxmox VE",
@@ -54,11 +83,6 @@ export const projects = [
       {
         name: "Pfsense",
         logo: "/assets/techno/pfsense.png",
-        docLink: "/docs/ap2/",
-      },
-      {
-        name: "",
-        logo: "",
         docLink: "/docs/ap2/",
       },
     ],
@@ -72,7 +96,6 @@ export const projects = [
     description: "",
     location: "Lycée Pasteur Mont Roland à Dole, France",
     year: "Septembre 2025 - Janvier 2026",
-    infraImage: "",
     team: {
       network: ["Léo GRUET", "Dylan DOS SANTOS", "Evan MORBOEUF"],
       dev: [
@@ -82,6 +105,20 @@ export const projects = [
         "Mathis MOLLIER",
       ],
     },
+    images: [
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+    ],
     technologies: [
       {
         name: "Proxmox VE",
@@ -116,7 +153,7 @@ export const projects = [
     ],
     demoLink: "#",
     repoLink: "#",
-    image: ["", ""],
+    image: [],
   },
   {
     id: 4,
@@ -124,7 +161,6 @@ export const projects = [
     description: "",
     location: "Lycée Pasteur Mont Roland à Dole, France",
     year: "Janvier 2026 - Avril 2026",
-    infraImage: "assets/profile.jpg",
     team: {
       network: ["Léo GRUET", "Dylan DOS SANTOS", "Samuel GAULARD"],
       dev: [
@@ -134,6 +170,20 @@ export const projects = [
         "Mathis MOLLIER",
       ],
     },
+    images: [
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+      {
+        url: "",
+        title: "",
+      },
+    ],
     technologies: [
       {
         name: "Proxmox VE",
@@ -165,24 +215,9 @@ export const projects = [
         logo: "/assets/techno/laravel_logo.webp",
         docLink: "/docs/ap4/",
       },
-      {
-        name: "",
-        logo: "/assets/techno/",
-        docLink: "/docs/ap4/",
-      },
-      {
-        name: "",
-        logo: "/assets/techno/",
-        docLink: "/docs/ap4/",
-      },
-      {
-        name: "",
-        logo: "/assets/techno/",
-        docLink: "/docs/ap4/",
-      },
     ],
     demoLink: "#",
     repoLink: "#",
-    image: ["", ""],
+    image: [],
   },
 ];

@@ -27,7 +27,7 @@ export const veilleTools = [
 
 export const veilleBilan = {
   intro:
-    "La période allant de septembre 2025 à janvier 2026 marque une rupture historique dans les méthodes de déploiement de postes de travail. L'ère de l'imagerie traditionnelle touche à sa fin au profit du provisionnement et de la gestion déclarative.",
+    "La période allant de septembre 2025 à mars 2026 marque une rupture historique dans les méthodes de déploiement de postes de travail. L'ère de l'imagerie traditionnelle touche à sa fin au profit du provisionnement et de la gestion déclarative.",
   points: [
     "Windows : L'imagerie (Masterisation) est morte. Microsoft a retiré MDT et bloque l'usage de VBScript. Le provisionnement via Autopilot V2 est désormais la norme.",
     "macOS : Le Mac devient autonome. Le passage à macOS 16 impose le DDM (Declarative Device Management), rendant obsolètes les anciennes méthodes MDM.",
@@ -160,24 +160,66 @@ export const veilleArticles = [
   {
     id: 6,
     month: "Février 2026",
-    title: "À venir...",
-    summary: "Article en cours de rédaction pour le mois de février.",
+    title: "Intelligence Artificielle et Sécurité Renforcée",
+    summary:
+      "Intégration de Microsoft Copilot dans Intune, durcissement du DDM sur macOS et arrivée de l'IA générative dans Ansible.",
     content: `
-            <p>Le contenu de la veille technologique pour le mois de février 2026 sera bientôt disponible.</p>
+            <h4 class="font-bold text-lg text-accent mb-2">Windows & Intune (Copilot & Autopilot V2)</h4>
+            <p>L'intégration de Microsoft Copilot dans Intune franchit un nouveau cap. L'outil est désormais capable d'analyser en profondeur les journaux d'erreurs générés lors d'un échec de déploiement Autopilot et de suggérer directement la modification de la politique ou de l'application bloquante. En parallèle, Microsoft améliore l'expérience utilisateur de la nouvelle version d'Autopilot Device Preparation avec une barre de progression plus détaillée, réduisant les appels au support technique.</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">macOS (Gestion Déclarative stricte)</h4>
+            <p>Apple commence à durcir le ton avec les éditeurs de solutions MDM qui n'ont pas encore totalement migré vers le Declarative Device Management (DDM). Certaines requêtes traditionnelles de gestion d'applications tierces affichent désormais des avertissements de dépréciation stricts dans les journaux système, forçant l'adoption du nouveau standard.</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">Linux & Ansible (Automatisation)</h4>
+            <p>Red Hat pousse fortement l'intégration de l'IA générative dans Ansible via le projet Lightspeed. La génération de playbooks complexes pour la configuration de postes de travail hybrides (Linux/Windows) via des instructions en langage naturel devient beaucoup plus fiable, accélérant la création de scripts de post-déploiement.</p>
         `,
-    tags: ["En cours"],
-    sources: [],
+    tags: ["Copilot", "Intune", "DDM", "Ansible Lightspeed"],
+    sources: [
+      {
+        name: "Intune Blog (Copilot)",
+        url: "https://techcommunity.microsoft.com/t5/intune-customer-success/bg-p/IntuneCustomerSuccess",
+      },
+      {
+        name: "Apple Developer (DDM)",
+        url: "https://developer.apple.com/documentation/devicemanagement",
+      },
+      {
+        name: "Red Hat Ansible Lightspeed",
+        url: "https://www.redhat.com/en/technologies/management/ansible/ansible-lightspeed",
+      },
+    ],
   },
   {
     id: 7,
     month: "Mars 2026",
-    title: "À venir...",
-    summary: "Article en cours de rédaction pour le mois de mars.",
+    title: "Gestion de l'après-Windows 10 et Mises à jour de Printemps",
+    summary:
+      "Sortie de MECM 2603, fiabilisation du Platform SSO sur macOS et maintien de FOG pour l'imagerie fine.",
     content: `
-            <p>Le contenu de la veille technologique pour le mois de mars 2026 sera bientôt disponible.</p>
+            <h4 class="font-bold text-lg text-accent mb-2">Écosystème Microsoft (SCCM 2603 & Migration ESU)</h4>
+            <p>Le premier jalon de l'année pour Configuration Manager (MECM version 2603) est déployé. Sans surprise, aucune nouveauté majeure n'est annoncée pour le déploiement traditionnel On-Premise (OSD). L'essentiel de la mise à jour se concentre sur l'amélioration du Cloud Attach et la sécurité du serveur. Parallèlement, les entreprises ayant souscrit aux mises à jour de sécurité étendues (ESU) suite à la fin de support de Windows 10 en octobre 2025 accélèrent massivement leur migration vers Windows 11, constatant que l'imagerie classique n'est plus viable.</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">macOS (Platform SSO)</h4>
+            <p>Le déploiement de la mise à jour intermédiaire de printemps de macOS (version 16.3/16.4) fiabilise massivement le Platform SSO. La synchronisation des mots de passe entre le Mac local et Microsoft Entra ID est désormais suffisamment stable pour que les grandes entreprises abandonnent définitivement les anciens agents de synchronisation tiers (bind AD classique).</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">FOG Project (Résistance de l'imagerie)</h4>
+            <p>Alors que le monde Windows abandonne l'imagerie avec le retrait définitif de MDT, la communauté FOG Project publie des guides mis à jour pour capturer et déployer des images fines (Thin Images) de Windows 11 et des dernières distributions Linux (comme Ubuntu 24.04 LTS et 26.04). FOG confirme ainsi son statut d'ultime solution libre pour les environnements hors ligne ou académiques nécessitant du clonage de masse.</p>
         `,
-    tags: ["En cours"],
-    sources: [],
+    tags: ["MECM 2603", "Platform SSO", "FOG Project", "Thin Images"],
+    sources: [
+      {
+        name: "Microsoft Learn (MECM What's New)",
+        url: "https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      },
+      {
+        name: "Microsoft Learn (Platform SSO)",
+        url: "https://learn.microsoft.com/en-us/entra/identity/devices/apple-sso-plugin",
+      },
+      {
+        name: "FOG Project Forums",
+        url: "https://forums.fogproject.org/",
+      },
+    ],
   },
   {
     id: 8,

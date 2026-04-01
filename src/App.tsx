@@ -9,7 +9,8 @@ import Projects from "./components/Projects";
 import ProjectDetails from "./components/ProjectDetails";
 import MiscProjects from "./components/MiscProjects";
 import VeilleTechno from "./components/VeilleTechno";
-import ScrollToTop from "./components/ScrollToTop"; // Import du composant
+import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./components/NotFound";
 
 const MainLayout = () => (
   <>
@@ -37,6 +38,8 @@ export default function App() {
         <Route path="/project/:id" element={<ProjectDetails />} />
         <Route path="/divers" element={<MiscProjects />} />
         <Route path="/veille" element={<VeilleTechno />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

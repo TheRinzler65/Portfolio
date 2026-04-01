@@ -15,17 +15,14 @@ export const projects = [
       {
         name: "HTML",
         logo: "/assets/techno/html.png",
-        docLink: "#",
       },
       {
         name: "CSS",
         logo: "/assets/techno/css.png",
-        docLink: "#",
       },
       {
         name: "JavaScript",
         logo: "/assets/techno/js.png",
-        docLink: "#",
       },
     ],
     demoLink: "#",
@@ -40,7 +37,7 @@ export const projects = [
     year: "2025",
     infraImage: "",
     team: {
-      network: ["Léo Gruet", "Léo PERNIN"],
+      network: ["Léo GRUET", "Léo PERNIN"],
       dev: [
         "Yulian GUINAND",
         "Mélanie TROUTIER",
@@ -77,7 +74,7 @@ export const projects = [
     year: "Septembre 2025 - Janvier 2026",
     infraImage: "",
     team: {
-      network: ["Léo Gruet", "Dylan DOS SANTOS", "Evan MORBOEUF"],
+      network: ["Léo GRUET", "Dylan DOS SANTOS", "Evan MORBOEUF"],
       dev: [
         "Yulian GUINAND",
         "Mélanie TROUTIER",
@@ -129,7 +126,7 @@ export const projects = [
     year: "Janvier 2026 - Avril 2026",
     infraImage: "assets/profile.jpg",
     team: {
-      network: ["Léo Gruet", "Dylan DOS SANTOS", "Samuel GAULARD"],
+      network: ["Léo GRUET", "Dylan DOS SANTOS", "Samuel GAULARD"],
       dev: [
         "Yulian GUINAND",
         "Mélanie TROUTIER",

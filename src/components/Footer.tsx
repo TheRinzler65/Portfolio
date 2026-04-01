@@ -1,32 +1,47 @@
-import { Container, Facebook, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Terminal } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded mt-10">
-      <aside>
-        <Container className="w-10 h-10 text-accent mb-2" />
-        <p className="font-bold text-lg">
+    <footer className="footer footer-center p-10 bg-base-200 text-base-content mt-20 border-t border-base-300">
+      <aside className="flex flex-col items-center">
+        <div className="bg-accent/10 p-4 rounded-full mb-4">
+          <Terminal className="w-8 h-8 text-accent" />
+        </div>
+        <p className="font-bold text-2xl tracking-wide">
           Léo <span className="text-accent">GRUET</span>
         </p>
-        <p>Copyright © {new Date().getFullYear()} - Tous droits réservés</p>
+        <p className="text-sm opacity-80 font-medium mt-1">
+          Administrateur Systèmes & Réseaux
+        </p>
+        <p className="text-xs opacity-60 mt-4">
+          Copyright © {new Date().getFullYear()} - Tous droits réservés
+        </p>
       </aside>
       <nav>
-        <div className="grid grid-flow-col gap-4">
+        <div className="flex gap-6 mt-4">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
+          >
+            <Github className="w-6 h-6" />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
+          >
+            <Linkedin className="w-6 h-6" />
+          </a>
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent transition-colors duration-200"
+            className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
           >
             <Twitter className="w-6 h-6" />
-          </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition-colors duration-200"
-          >
-            <Facebook className="w-6 h-6" />
           </a>
         </div>
       </nav>

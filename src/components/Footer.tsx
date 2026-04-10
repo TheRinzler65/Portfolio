@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Terminal } from "lucide-react";
+import { Github, Linkedin, Terminal } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -20,7 +20,7 @@ const Footer = () => {
       <nav>
         <div className="flex gap-6 mt-4">
           <a
-            href="https://github.com"
+            href="https://github.com/TheRinzler65"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
@@ -28,20 +28,12 @@ const Footer = () => {
             <Github className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/leogruet/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
           >
             <Linkedin className="w-6 h-6" />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 bg-base-100 rounded-full hover:text-white hover:bg-accent hover:-translate-y-1 transition-all duration-300 shadow-sm border border-base-300"
-          >
-            <Twitter className="w-6 h-6" />
           </a>
         </div>
       </nav>

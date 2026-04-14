@@ -9,19 +9,25 @@ interface Props {
 const Competence = ({ item }: Props) => {
   return (
     <tr className="hover:bg-base-200/50 transition-colors border-b border-base-200">
-      <td className="py-3 px-2 md:px-4 font-bold text-accent text-xs md:text-sm align-top break-words">
+      <td className="py-4 px-2 md:px-6 font-bold text-accent text-xs md:text-sm align-top break-words">
         {item.domain}
       </td>
-      <td className="py-3 px-2 md:px-4 align-top break-words">
-        <div className="flex items-start gap-2">
-          <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5 hidden sm:block" />
-          <span className="font-semibold text-xs md:text-sm">{item.skill}</span>
+      <td className="py-4 px-2 md:px-6 align-top break-words">
+        <div className="flex flex-col gap-3">
+          {item.skills.map((skillText, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5 hidden sm:block" />
+              <span className="font-semibold text-xs md:text-sm leading-relaxed">
+                {skillText}
+              </span>
+            </div>
+          ))}
         </div>
       </td>
-      <td className="py-3 px-2 md:px-4 opacity-80 font-medium text-xs md:text-sm align-top break-words">
+      <td className="py-4 px-2 md:px-6 opacity-80 font-medium text-xs md:text-sm align-top break-words">
         {item.context}
       </td>
-      <td className="py-3 px-2 md:px-4 text-center align-middle">
+      <td className="py-4 px-2 md:px-6 text-center align-top">
         {item.isExternal ? (
           <a
             href={item.proofLink}

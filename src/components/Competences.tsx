@@ -1,8 +1,15 @@
+import { Fragment } from "react";
 import Title from "./Title";
 import { ArrowLeft, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { skillsData } from "../data/competences";
 import Competence from "./Competence";
+
+const categories = [
+  "Projet et TP en cours de scolarité",
+  "Réalisations en milieu professionnel en cours de première année",
+  "Réalisations en milieu professionnel en cours de seconde année",
+];
 
 const Competences = () => {
   return (
@@ -19,7 +26,7 @@ const Competences = () => {
         <span className="sm:hidden">Retour</span>
       </Link>
 
-      <Title title="Matrice des Compétences" />
+      <Title title="Tableau des compétences" />
 
       <div className="mt-8 md:mt-12 bg-base-200 rounded-2xl md:rounded-3xl p-4 md:p-10 shadow-sm border border-base-300">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8">
@@ -33,7 +40,7 @@ const Competences = () => {
           </div>
 
           <a
-            href="/competences/tableau_de_competence.xlsx"
+            href="/docs/tableau_de_competence.xlsx"
             download
             className="btn btn-accent text-white rounded-full px-8 py-3 shadow-lg shadow-accent/30 hover:shadow-accent/50 hover:-translate-y-1 transition-all flex items-center gap-3 flex-shrink-0"
           >
@@ -61,8 +68,22 @@ const Competences = () => {
               </tr>
             </thead>
             <tbody>
-              {skillsData.map((item) => (
-                <Competence key={item.id} item={item} />
+              {categories.map((category, index) => (
+                <Fragment key={index}>
+                  <tr>
+                    <td
+                      colSpan={4}
+                      className="bg-base-200/80 font-bold text-center text-accent py-4 uppercase tracking-wider text-sm md:text-base shadow-sm border-y border-base-300"
+                    >
+                      {category}
+                    </td>
+                  </tr>
+                  {skillsData
+                    .filter((item) => item.category === category)
+                    .map((item) => (
+                      <Competence key={item.id} item={item} />
+                    ))}
+                </Fragment>
               ))}
             </tbody>
           </table>

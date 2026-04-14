@@ -19,7 +19,7 @@ const About = () => {
             et l'automatisation des réseaux d'entreprise.
           </p>
           <a
-            href="/assets/CV.pdf"
+            href="/docs/Leo_Gruet_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-accent w-fit text-white rounded-full px-6 shadow-lg hover:scale-105 transition-transform"

@@ -11,15 +11,16 @@ import MiscProjects from "./components/MiscProjects";
 import VeilleTechno from "./components/VeilleTechno";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./components/NotFound";
+import Competences from "./components/Competences";
 
 const MainLayout = () => (
   <>
-    <div className="p-5 md:px-[15%]">
+    <div className="p-5 md:px-">
       <Navbar />
       <Home />
     </div>
     <About />
-    <div className="p-5 md:px-[15%]">
+    <div className="p-5 md:px-">
       <Experiences />
       <Projects />
     </div>
@@ -38,9 +39,10 @@ export default function App() {
         <Route path="/project/:id" element={<ProjectDetails />} />
         <Route path="/divers" element={<MiscProjects />} />
         <Route path="/veille" element={<VeilleTechno />} />
+        <Route path="/competences" element={<Competences />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter>  
   );
 }

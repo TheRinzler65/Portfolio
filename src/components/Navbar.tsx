@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Container, Menu, X, Rss, Mail } from "lucide-react";
+import { Container, Menu, X, Rss, Mail, Book } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Permet de savoir sur quelle page on est
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -23,7 +23,6 @@ const Navbar = () => {
     { href: "/#Projects", label: "Projets" },
   ];
 
-  // Fonction pour gérer le scroll doux si on est déjà sur la page d'accueil
   const handleNavClick = (href: string) => {
     if (location.pathname === "/" && href.startsWith("/#")) {
       const element = document.querySelector(href.substring(1));
@@ -50,7 +49,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* DESKTOP MENU */}
           <div className="hidden md:flex space-x-2 items-center">
             {navLinks.map((link) => (
               <a
@@ -66,6 +64,16 @@ const Navbar = () => {
             <div className="h-6 w-px bg-base-300 mx-2"></div>
 
             <Link
+              to="/competences"
+              className="btn btn-sm btn-ghost hover:bg-base-200 gap-2 font-normal"
+            >
+              <Book className="w-4 h-4 text-accent" />
+              Compétences
+            </Link>
+
+            <div className="h-6 w-px bg-base-300 mx-2"></div>
+
+            <Link
               to="/veille"
               className="btn btn-sm btn-ghost hover:bg-base-200 gap-2 font-normal"
             >
@@ -73,7 +81,6 @@ const Navbar = () => {
               Veille
             </Link>
 
-            {/* LE fameux bouton amélioré */}
             <button
               onClick={openModal}
               className="btn btn-sm btn-accent rounded-full text-white px-5 shadow-lg hover:shadow-accent/50 hover:scale-105 transition-all duration-300 ml-2"
@@ -110,6 +117,14 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/competences"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center px-4 py-3 rounded-xl hover:bg-base-100 gap-3"
+            >
+              <Rss className="w-5 h-5 text-accent" />
+              Compétences
+            </Link>
             <div className="divider my-1"></div>
             <Link
               to="/veille"

@@ -17,9 +17,13 @@ const VeilleTechno = () => {
 
   return (
     <div className="min-h-screen bg-base-100 py-10 px-5 md:px-20">
-      <Link to="/" className="btn btn-ghost mb-8 gap-2">
-        <ArrowLeft className="w-5 h-5" />
-        Retour à l'accueil
+      <Link
+        to="/"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-200 hover:bg-base-300 transition-colors mb-8 text-sm font-semibold shadow-sm border border-base-300 w-fit"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span className="hidden sm:inline">Retour à l'accueil</span>
+        <span className="sm:hidden">Retour</span>
       </Link>
 
       <div className="max-w-5xl mx-auto">

@@ -2,7 +2,7 @@ export const veilleTools = [
   {
     name: "Gemini",
     description:
-      "Assistant IA pour rechercher des informations techniques sur les déploiements Windows/macOS/Linux et analyser les logs d'erreurs (BSOD, scripts).",
+      "Assistant IA pour rechercher des informations techniques sur les déploiements Windows/Linux et analyser les logs d'erreurs (BSOD, scripts).",
     icon: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
   },
   {
@@ -14,27 +14,26 @@ export const veilleTools = [
   {
     name: "YouTube",
     description:
-      "Suivi de chaînes spécialisées pour les démonstrations techniques (Autopilot, Jamf, FOG Project, Ansible).",
+      "Suivi de chaînes spécialisées pour les démonstrations techniques (Autopilot, FOG Project, Ansible, OSDCloud).",
     icon: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg",
   },
   {
     name: "X (Twitter)",
     description:
-      "Suivi des comptes officiels (Microsoft Intune, Apple Support) et des experts MVP pour une veille en temps réel et remonter les bugs critiques.",
+      "Suivi des comptes officiels (Microsoft Intune, Ubuntu) et des experts MVP pour une veille en temps réel et remonter les bugs critiques.",
     icon: "https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg",
   },
 ];
 
 export const veilleBilan = {
   intro:
-    "La période allant de septembre 2025 à mars 2026 marque une rupture historique dans les méthodes de déploiement de postes de travail. L'ère de l'imagerie traditionnelle touche à sa fin au profit du provisionnement et de la gestion déclarative.",
+    "Le paysage du déploiement informatique traverse une rupture majeure et irréversible. L'approche traditionnelle basée sur l'imagerie disque (masterisation) cède définitivement sa place au provisionnement dynamique par le Cloud et à l'automatisation déclarative de l'état des terminaux.",
   points: [
-    "Windows : L'imagerie (Masterisation) est morte. Microsoft a retiré MDT et bloque l'usage de VBScript. Le provisionnement via Autopilot V2 est désormais la norme.",
-    "macOS : Le Mac devient autonome. Le passage à macOS 16 impose le DDM (Declarative Device Management), rendant obsolètes les anciennes méthodes MDM.",
-    "Linux : L'automatisation via Ansible se standardise fortement pour gérer la configuration post-installation, remplaçant les scripts shell monolithiques.",
+    "Windows : Fin actée de la masterisation classique avec le retrait de MDT et l'obsolescence de VBScript. Le provisionnement via Autopilot V2 s'impose comme le standard industriel, soutenu par des alternatives communautaires modernes comme OSDCloud pour le bare-metal.",
+    "Linux : Transition d'une gestion artisanale vers une intégration d'entreprise. L'automatisation via Ansible se généralise pour la post-configuration, et le support croissant des agents UEM permet d'appliquer des politiques de conformité centralisées au même titre que Windows.",
   ],
   conclusion:
-    "Action immédiate requise : il faut cesser tout nouveau projet basé sur MDT pour migrer vers Windows Autopilot. Côté Apple, un audit des profils Jamf/Intune est nécessaire pour basculer sur les configurations déclaratives. Linux reste une excellente alternative (via FOG/Ansible) pour le matériel vieillissant.",
+    "Stratégie recommandée : abandonner les projets basés sur des infrastructures MDT vieillissantes pour migrer les flux Windows vers Intune et Autopilot. Parallèlement, capitaliser sur le matériel existant en unifiant la gestion des postes Linux via des consoles UEM et la standardisation de leur configuration par le code (Infrastructure-as-Code).",
 };
 
 export const veilleArticles = [
@@ -43,20 +42,17 @@ export const veilleArticles = [
     month: "Septembre 2025",
     title: "La rentrée des OS et les premières ruptures",
     summary:
-      "Lancement de Windows 11 25H2, macOS 16 et GNOME 49, apportant de nouveaux défis majeurs de déploiement.",
+      "Lancement de Windows 11 25H2 et GNOME 49, apportant de nouveaux défis majeurs de déploiement.",
     content: `
             <h4 class="font-bold text-lg text-accent mb-2">Windows 11 25H2 (Release)</h4>
             <p><strong>Problème critique :</strong> Les premières tentatives de déploiement via SCCM/MDT échouent (BSOD) sur le matériel récent en raison de l'incompatibilité des nouveaux noyaux avec les anciens pilotes de stockage génériques.</p>
             <p><strong>Nouveauté :</strong> Intégration native de la commande <code class="bg-base-300 px-1 rounded">Sudo</code> pour Windows, modifiant les scripts d'élévation de privilèges dans Intune.</p>
             <br>
-            <h4 class="font-bold text-lg text-accent mb-2">macOS 16 (Lancement)</h4>
-            <p><strong>Impact Déploiement :</strong> Apple déprécie officiellement les commandes MDM traditionnelles pour les mises à jour logicielles (ScheduleOSUpdate). Seules les commandes déclaratives (DDM) sont garanties fonctionnelles.</p>
-            <br>
             <h4 class="font-bold text-lg text-accent mb-2">Linux (GNOME 49)</h4>
             <p>Modifications majeures des API de configuration d'affichage, nécessitant une mise à jour immédiate des collections Ansible <code class="bg-base-300 px-1 rounded">community.general</code>.</p>
         `,
-    tags: ["Windows 11 25H2", "macOS 16", "Ansible"],
-    sources: [{ name: "Jamf Release Notes (macOS 16)", url: "#" }],
+    tags: ["Windows 11 25H2", "Ansible", "GNOME 49"],
+    sources: [{ name: "Ansible Galaxy", url: "https://galaxy.ansible.com/" }],
   },
   {
     id: 2,
@@ -83,26 +79,22 @@ export const veilleArticles = [
   {
     id: 3,
     month: "Novembre 2025",
-    title: "Hardware, puces M4 et Autopilot V2",
+    title: "Hardware, Autopilot V2 et correctifs",
     summary:
-      "Sortie de Windows Autopilot V2 et gestion des bugs critiques sur les nouvelles puces Apple et le chiffrement BitLocker.",
+      "Sortie de Windows Autopilot V2 et gestion des bugs critiques concernant le chiffrement BitLocker.",
     content: `
             <h4 class="font-bold text-lg text-accent mb-2">Windows Autopilot "Device Preparation" (V2)</h4>
             <p>Passage en "Généralement Disponible" (GA). Cette méthode supprime enfin la nécessité de capturer le fastidieux "Hardware Hash" pour de nombreux scénarios, ce qui accélère drastiquement l'enrôlement des PC neufs.</p>
             <br>
-            <h4 class="font-bold text-lg text-accent mb-2">Matériel Apple (Puces M4)</h4>
-            <p>Les nouveaux MacBook Pro M4 présentent un bug lors de l'enrôlement automatisé (ADE) si l'étape "Configuration Bluetooth" est masquée dans le profil Jamf, bloquant la connexion Wi-Fi initiale. Un correctif a été déployé en urgence via Jamf Pro 11.10.</p>
-            <br>
             <h4 class="font-bold text-lg text-accent mb-2">BitLocker (Windows)</h4>
             <p>Découverte d'un bug critique sur les SSD Samsung avec la mise à jour cumulative KB505xxxx, empêchant le chiffrement silencieux déclenché via Intune.</p>
         `,
-    tags: ["Autopilot V2", "Apple M4", "Jamf Pro", "BitLocker"],
+    tags: ["Autopilot V2", "BitLocker"],
     sources: [
       {
         name: "Intune Blog (Autopilot V2)",
         url: "https://techcommunity.microsoft.com/t5/intune-customer-success/bg-p/IntuneCustomerSuccess",
       },
-      { name: "Jamf Release Notes", url: "#" },
     ],
   },
   {
@@ -115,7 +107,7 @@ export const veilleArticles = [
             <h4 class="font-bold text-lg text-accent mb-2">FOG Project (v1.5.10-RC2)</h4>
             <p>Mise à jour critique pour le support des disques NVMe Gen5. Les versions précédentes ne détectaient pas ces disques ou offraient des débits de clonage extrêmement lents, bloquant les déploiements sur le matériel très récent.</p>
             <br>
-            <h4 class="font-bold text-lg text-accent mb-2">Sécurité SSH (Multi-OS)</h4>
+            <h4 class="font-bold text-lg text-accent mb-2">Sécurité SSH (Linux & Windows)</h4>
             <p><strong class="text-error">Faille critique :</strong> Une vulnérabilité dans OpenSSH oblige les administrateurs à déployer des scripts de remédiation d'urgence. Utilisation massive d'Ansible pour le parc Linux et de scripts Intune pour Windows afin de sécuriser le port 22.</p>
             <br>
             <h4 class="font-bold text-lg text-accent mb-2">Annonce Fin de Vie MDT</h4>
@@ -162,26 +154,19 @@ export const veilleArticles = [
     month: "Février 2026",
     title: "Intelligence Artificielle et Sécurité Renforcée",
     summary:
-      "Intégration de Microsoft Copilot dans Intune, durcissement du DDM sur macOS et arrivée de l'IA générative dans Ansible.",
+      "Intégration de Microsoft Copilot dans Intune et arrivée de l'IA générative dans Ansible.",
     content: `
             <h4 class="font-bold text-lg text-accent mb-2">Windows & Intune (Copilot & Autopilot V2)</h4>
             <p>L'intégration de Microsoft Copilot dans Intune franchit un nouveau cap. L'outil est désormais capable d'analyser en profondeur les journaux d'erreurs générés lors d'un échec de déploiement Autopilot et de suggérer directement la modification de la politique ou de l'application bloquante. En parallèle, Microsoft améliore l'expérience utilisateur de la nouvelle version d'Autopilot Device Preparation avec une barre de progression plus détaillée, réduisant les appels au support technique.</p>
             <br>
-            <h4 class="font-bold text-lg text-accent mb-2">macOS (Gestion Déclarative stricte)</h4>
-            <p>Apple commence à durcir le ton avec les éditeurs de solutions MDM qui n'ont pas encore totalement migré vers le Declarative Device Management (DDM). Certaines requêtes traditionnelles de gestion d'applications tierces affichent désormais des avertissements de dépréciation stricts dans les journaux système, forçant l'adoption du nouveau standard.</p>
-            <br>
             <h4 class="font-bold text-lg text-accent mb-2">Linux & Ansible (Automatisation)</h4>
             <p>Red Hat pousse fortement l'intégration de l'IA générative dans Ansible via le projet Lightspeed. La génération de playbooks complexes pour la configuration de postes de travail hybrides (Linux/Windows) via des instructions en langage naturel devient beaucoup plus fiable, accélérant la création de scripts de post-déploiement.</p>
         `,
-    tags: ["Copilot", "Intune", "DDM", "Ansible Lightspeed"],
+    tags: ["Copilot", "Intune", "Ansible Lightspeed"],
     sources: [
       {
         name: "Intune Blog (Copilot)",
         url: "https://techcommunity.microsoft.com/t5/intune-customer-success/bg-p/IntuneCustomerSuccess",
-      },
-      {
-        name: "Apple Developer (DDM)",
-        url: "https://developer.apple.com/documentation/devicemanagement",
       },
       {
         name: "Red Hat Ansible Lightspeed",
@@ -194,26 +179,19 @@ export const veilleArticles = [
     month: "Mars 2026",
     title: "Gestion de l'après-Windows 10 et Mises à jour de Printemps",
     summary:
-      "Sortie de MECM 2603, fiabilisation du Platform SSO sur macOS et maintien de FOG pour l'imagerie fine.",
+      "Sortie de MECM 2603 et maintien de FOG pour l'imagerie fine de Linux et Windows.",
     content: `
             <h4 class="font-bold text-lg text-accent mb-2">Écosystème Microsoft (SCCM 2603 & Migration ESU)</h4>
             <p>Le premier jalon de l'année pour Configuration Manager (MECM version 2603) est déployé. Sans surprise, aucune nouveauté majeure n'est annoncée pour le déploiement traditionnel On-Premise (OSD). L'essentiel de la mise à jour se concentre sur l'amélioration du Cloud Attach et la sécurité du serveur. Parallèlement, les entreprises ayant souscrit aux mises à jour de sécurité étendues (ESU) suite à la fin de support de Windows 10 en octobre 2025 accélèrent massivement leur migration vers Windows 11, constatant que l'imagerie classique n'est plus viable.</p>
             <br>
-            <h4 class="font-bold text-lg text-accent mb-2">macOS (Platform SSO)</h4>
-            <p>Le déploiement de la mise à jour intermédiaire de printemps de macOS (version 16.3/16.4) fiabilise massivement le Platform SSO. La synchronisation des mots de passe entre le Mac local et Microsoft Entra ID est désormais suffisamment stable pour que les grandes entreprises abandonnent définitivement les anciens agents de synchronisation tiers (bind AD classique).</p>
-            <br>
             <h4 class="font-bold text-lg text-accent mb-2">FOG Project (Résistance de l'imagerie)</h4>
             <p>Alors que le monde Windows abandonne l'imagerie avec le retrait définitif de MDT, la communauté FOG Project publie des guides mis à jour pour capturer et déployer des images fines (Thin Images) de Windows 11 et des dernières distributions Linux (comme Ubuntu 24.04 LTS et 26.04). FOG confirme ainsi son statut d'ultime solution libre pour les environnements hors ligne ou académiques nécessitant du clonage de masse.</p>
         `,
-    tags: ["MECM 2603", "Platform SSO", "FOG Project", "Thin Images"],
+    tags: ["MECM 2603", "FOG Project", "Thin Images"],
     sources: [
       {
         name: "Microsoft Learn (MECM What's New)",
         url: "https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/changes/whats-new-in-version-2603",
-      },
-      {
-        name: "Microsoft Learn (Platform SSO)",
-        url: "https://learn.microsoft.com/en-us/entra/identity/devices/apple-sso-plugin",
       },
       {
         name: "FOG Project Forums",
@@ -224,12 +202,29 @@ export const veilleArticles = [
   {
     id: 8,
     month: "Avril 2026",
-    title: "À venir...",
-    summary: "Article en cours de rédaction pour le mois d'avril.",
+    title: "Optimisation Cloud et Convergence Linux",
+    summary:
+      "Priorisation des applications via Autopilot, prédiction des mises à jour Windows et alignement de la gestion Linux sur les standards UEM.",
     content: `
-            <p>Le contenu de la veille technologique pour le mois d'avril 2026 sera bientôt disponible.</p>
+            <h4 class="font-bold text-lg text-accent mb-2">Windows Autopilot "Early App Trust"</h4>
+            <p>Déploiement d'une nouvelle fonctionnalité permettant aux applications (Win32, Store) d'être considérées comme "approuvées" plus tôt dans le processus de provisionnement. Cela garantit que les applications de sécurité critiques sont fonctionnelles avant même que l'utilisateur n'accède à son bureau, réduisant les échecs lors de l'OOBE.</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">Windows Autopatch & OSDCloud</h4>
+            <p>La fonctionnalité <em>Update Readiness</em> est généralisée dans Autopatch, offrant des tableaux de bord prédictifs pour la compatibilité du parc. En parallèle, pour le déploiement "Bare-Metal", la communauté adopte massivement <strong>OSDCloud</strong> pour pallier la mort de MDT, permettant l'injection d'images Windows directement depuis le cloud sans infrastructure locale.</p>
+            <br>
+            <h4 class="font-bold text-lg text-accent mb-2">Linux UEM (Unified Endpoint Management)</h4>
+            <p>Linux rattrape son retard sur la gestion centralisée. L'émergence d'agents légers spécialisés (comme ceux de JumpCloud ou Swif.ai) permet désormais d'appliquer des politiques de conformité, de chiffrement de disque et de gestion des mots de passe sur des distributions comme Ubuntu, Fedora et Debian, directement depuis des consoles unifiées.</p>
         `,
-    tags: ["En cours"],
-    sources: [],
+    tags: ["Early App Trust", "OSDCloud", "Linux UEM", "Autopatch"],
+    sources: [
+      {
+        name: "OSDCloud Documentation",
+        url: "https://www.osdcloud.com/",
+      },
+      {
+        name: "Microsoft Intune Updates",
+        url: "https://learn.microsoft.com/en-us/mem/intune/fundamentals/whats-new",
+      },
+    ],
   },
 ];

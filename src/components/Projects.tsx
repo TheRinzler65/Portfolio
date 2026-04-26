@@ -11,9 +11,10 @@ const Projects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {projects.map((project) => {
           const displayImage =
-            project.images && project.images.length > 0
-              ? project.images[0].url
-              : null;
+            typeof project.imageproject === "string" &&
+            project.imageproject.trim() !== ""
+              ? project.imageproject
+              : undefined;
 
           return (
             <div

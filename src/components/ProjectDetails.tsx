@@ -10,6 +10,7 @@ import {
   FileText,
   Image as ImageIcon,
   Layers,
+  BookOpen,
 } from "lucide-react";
 
 const ProjectDetails = () => {
@@ -124,16 +125,16 @@ const ProjectDetails = () => {
         <div className="mb-12">
           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 pl-2">
             <Layers className="w-6 h-6 text-accent" />
-            Technologies & Documentation
+            Technologies
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {project.technologies.map((tech, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 bg-base-200 p-5 rounded-2xl border border-base-300 hover:border-accent hover:shadow-md transition-all duration-300 group"
+                className="flex flex-col items-center justify-center gap-3 bg-base-200 p-5 rounded-2xl border border-base-300 hover:border-accent hover:shadow-md transition-all duration-300 group"
               >
                 {tech.logo && (
-                  <div className="w-12 h-12 rounded-xl bg-base-100 flex items-center justify-center p-2 border border-base-300 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <div className="w-16 h-16 rounded-xl bg-base-100 flex items-center justify-center p-3 border border-base-300 group-hover:scale-110 transition-transform flex-shrink-0">
                     <img
                       src={tech.logo}
                       alt={tech.name}
@@ -141,29 +142,38 @@ const ProjectDetails = () => {
                     />
                   </div>
                 )}
-                <div className="flex flex-col">
-                  <span className="font-bold text-base-content">
-                    {tech.name}
-                  </span>
-                  {tech.docLink ? (
-                    <a
-                      href={tech.docLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-accent flex items-center gap-1 mt-1 hover:underline"
-                    >
-                      Voir la doc <FileText className="w-3 h-3" />
-                    </a>
-                  ) : (
-                    <span className="text-xs font-semibold opacity-40 flex items-center gap-1 mt-1">
-                      Pas de doc <FileText className="w-3 h-3" />
-                    </span>
-                  )}
-                </div>
+                <span className="font-bold text-center text-sm text-base-content">
+                  {tech.name}
+                </span>
               </div>
             ))}
           </div>
         </div>
+
+        {project.documents && project.documents.length > 0 && (
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 pl-2">
+              <BookOpen className="w-6 h-6 text-accent" />
+              Documentations & Ressources
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {project.documents.map((doc, index) => (
+                <a
+                  key={index}
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-base-200 hover:bg-accent hover:text-white p-5 rounded-2xl border border-base-300 hover:border-accent shadow-sm flex items-center justify-between transition-all duration-300 group"
+                >
+                  <span className="font-semibold text-base-content group-hover:text-white">
+                    {doc.title}
+                  </span>
+                  <FileText className="w-6 h-6 text-accent group-hover:text-white flex-shrink-0 ml-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
 
         {project.images && project.images.length > 0 && (
           <div>

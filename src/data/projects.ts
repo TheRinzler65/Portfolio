@@ -50,7 +50,7 @@ export const projects = [
     technologies: [
       {
         name: "Proxmox VE",
-        logo: "/assets/techno/proxmox_logo.svg",
+        logo: "/assets/techno/logo_proxmox.png",
       },
       {
         name: "Pfsense",
@@ -84,7 +84,7 @@ export const projects = [
     technologies: [
       {
         name: "Proxmox VE",
-        logo: "/assets/techno/proxmox_logo.svg",
+        logo: "/assets/techno/logo_proxmox.png",
       },
       {
         name: "Mikrotik (Router OS)",
@@ -148,8 +148,12 @@ export const projects = [
     ],
     technologies: [
       {
-        name: "Proxmox VE",
-        logo: "/assets/techno/proxmox_logo.svg",
+        name: "Proxmox Virtual Environment",
+        logo: "/assets/techno/logo_proxmox.png",
+      },
+      {
+        name: "Proxmox Backup Server",
+        logo: "/assets/techno/logo_proxmox_backup.png",
       },
       {
         name: "Mikrotik (Router OS)",
@@ -161,7 +165,31 @@ export const projects = [
       },
       {
         name: "Zabbix",
-        logo: "/assets/techno/zabbix_logo.webp",
+        logo: "/assets/techno/logo_zabbix.webp",
+      },
+      {
+        name: "phpMyAdmin",
+        logo: "/assets/techno/logo_phpmyadmin.png",
+      },
+      {
+        name: "HAProxy",
+        logo: "/assets/techno/logo_haproxy.png",
+      },
+      {
+        name: "Apache",
+        logo: "/assets/techno/logo_apache.png",
+      },
+      {
+        name: "MariaDB",
+        logo: "/assets/techno/logo_mariadb.png",
+      },
+      {
+        name: "PHP",
+        logo: "/assets/techno/logo_php.svg",
+      },
+      {
+        name: "",
+        logo: "",
       },
     ],
     documents: [

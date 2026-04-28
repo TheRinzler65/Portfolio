@@ -11,7 +11,7 @@ const Footer = () => {
           Léo <span className="text-accent">GRUET</span>
         </p>
         <p className="text-sm opacity-80 font-medium mt-1">
-          Administrateur Systèmes & Réseaux
+          Alternant Administrateur Systèmes & Réseaux
         </p>
         <p className="text-xs opacity-60 mt-4">
           Copyright © {new Date().getFullYear()} - Tous droits réservés

@@ -66,7 +66,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "AP3 - Association",
+    title: "AP3 - Engagement Leucémie",
     imageproject: "/assets/projects/ap3/logo_leucemie.png",
     description: "",
     location: "Lycée Pasteur Mont Roland à Dole, France",
@@ -83,40 +83,43 @@ export const projects = [
     images: [],
     technologies: [
       {
-        name: "Proxmox VE",
+        name: "Proxmox Virtual Environment",
+        logo: "/assets/techno/logo_proxmox.png",
+      },
+      {
+        name: "Proxmox Backup Server",
         logo: "/assets/techno/logo_proxmox.png",
       },
       {
         name: "Mikrotik (Router OS)",
-        logo: "/assets/techno/mikrotik_logo.webp",
-      },
-      {
-        name: "Windows Server 2022",
-        logo: "/assets/techno/windows_server_logo.webp",
+        logo: "/assets/techno/logo_mikrotik.svg",
       },
       {
         name: "GLPI",
         logo: "/assets/techno/glpi_logo.png",
       },
       {
+        name: "Apache",
+        logo: "/assets/techno/logo_apache.png",
+      },
+      {
+        name: "PHP",
+        logo: "/assets/techno/logo_php.svg",
+      },
+      {
+        name: "Windows Server 2022",
+        logo: "/assets/techno/windows_server_logo.webp",
+      },
+      {
+        name: "SSMS (SQL Server Management Studio)",
+        logo: "/assets/techno/ssms.webp",
+      },
+      {
         name: "Nextcloud",
         logo: "/assets/techno/nextcloud_logo.webp",
       },
-      {
-        name: "Laravel",
-        logo: "/assets/techno/laravel_logo.webp",
-      },
     ],
-    documents: [
-      {
-        title: "Configuration du Routage OSPF",
-        url: "/docs/ap3/routage.pdf",
-      },
-      {
-        title: "Mise en place des VLANs",
-        url: "/docs/ap3/vlan.pdf",
-      },
-    ],
+    documents: [],
     demoLink: "#",
     repoLink: "#",
   },

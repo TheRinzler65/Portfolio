@@ -21,24 +21,21 @@ const Projects = () => {
               key={project.id}
               className="group flex flex-col bg-base-200 rounded-[2rem] overflow-hidden border border-base-300 shadow-md hover:shadow-2xl hover:border-accent/50 transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="relative h-60 overflow-hidden bg-base-300">
+              <div className="relative h-64 p-8 flex items-center justify-center overflow-hidden bg-base-100 border-b border-base-300">
                 {displayImage ? (
-                  <>
-                    <img
-                      src={displayImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-base-200 via-transparent to-transparent opacity-90"></div>
-                  </>
+                  <img
+                    src={displayImage}
+                    alt={project.title}
+                    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-sm"
+                  />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-base-content/20 group-hover:text-accent/50 transition-colors duration-500">
-                    <FolderOpen className="w-20 h-20" />
+                  <div className="text-base-content/20 group-hover:text-accent/50 transition-colors duration-500">
+                    <FolderOpen className="w-24 h-24" />
                   </div>
                 )}
               </div>
 
-              <div className="p-8 flex flex-col flex-grow relative z-10 -mt-10 bg-base-200 rounded-t-[2rem]">
+              <div className="p-8 flex flex-col flex-grow bg-base-200">
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
@@ -70,8 +67,8 @@ const Projects = () => {
             Projets Divers
           </h3>
           <p className="text-center opacity-70 mb-8 max-w-xs text-sm leading-relaxed">
-            Scripts d'automatisation, configurations réseau, environnements de
-            test et petits outils personnels.
+            Ensemble de mes projets personnels, expérimentations et
+            contributions open-source.
           </p>
           <span className="btn btn-outline btn-accent rounded-full gap-2 group-hover:bg-accent group-hover:text-white transition-all duration-300">
             Explorer <ArrowRight className="w-5 h-5" />

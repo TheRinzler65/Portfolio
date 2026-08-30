@@ -23,7 +23,7 @@ const Home = () => {
       <div className="flex flex-col lg:w-1/2 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-bold text-sm w-fit mb-6 border border-accent/20">
           <Terminal className="w-4 h-4" />
-          <span>Administrateur Systèmes & Réseaux</span>
+          <span>Alternant Administrateur Systèmes & Réseaux</span>
         </div>
 
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-center md:text-left mb-6 tracking-tight">

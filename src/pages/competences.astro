@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Tableau des Compétences — Léo Gruet"
+  description="Synthèse des réalisations professionnelles et compétences acquises en BTS SIO SISR."
+>
+  <div
+    class="py-8 md:py-12 px-4 md:px-8 lg:px-12 max-w-7xl mx-auto min-h-[70vh]"
+  >
+    <div class="mb-8 md:mb-12">
+      <p class="font-mono text-sm text-primary tracking-widest uppercase mb-2">
+        // compétences
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-text tracking-tight">
+        Tableau des compétences
+      </h1>
+      <p class="text-lg text-text-muted mt-2">
+        Synthèse des réalisations professionnelles et compétences acquises en
+        BTS SIO SISR
+      </p>
+    </div>
+
+    <!-- Desktop: iframe -->
+    <div
+      class="w-full max-w-5xl h-150 md:h-200 overflow-hidden hidden md:block rounded-2xl border border-border"
+    >
+      <iframe
+        src="/docs/competences/tableau_de_competence.pdf"
+        class="w-full h-full border-none"
+        title="Visualisation du tableau des compétences"></iframe>
+    </div>
+
+    <!-- Mobile: download link -->
+    <div
+      class="md:hidden flex flex-col items-center justify-center gap-6 py-12"
+    >
+      <svg
+        class="w-16 h-16 text-primary"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+        ></path></svg
+      >
+      <p class="text-text-muted text-center">
+        Le tableau des compétences est disponible en version PDF.
+      </p>
+      <a
+        href="/docs/competences/tableau_de_competence.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary hover:bg-primary-hover text-surface font-semibold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          ></path></svg
+        >
+        Télécharger le PDF
+      </a>
+    </div>
+  </div>
+</BaseLayout>

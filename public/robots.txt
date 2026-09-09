@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gruetleo.fr/sitemap-index.xml

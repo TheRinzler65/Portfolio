@@ -1,0 +1,102 @@
+---
+const navLinks = [
+  { name: "Accueil", href: "/" },
+  { name: "Compétences", href: "/competences" },
+  { name: "Veille", href: "/veille" },
+  { name: "Divers", href: "/divers" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-50 backdrop-blur-md bg-surface/80 border-b border-border"
+>
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+  >
+    <a
+      href="/"
+      class="font-mono font-bold text-base tracking-widest text-primary"
+    >
+      ~/leo
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6">
+      {
+        navLinks.map((link) => {
+          const isActive =
+            currentPath === link.href ||
+            (link.href !== "/" && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class={`font-mono text-sm transition-colors hover:text-primary ${
+                isActive ? "text-primary" : "text-text-muted"
+              }`}
+            >
+              {link.name}
+            </a>
+          );
+        })
+      }
+      <button
+        id="open-contact-modal"
+        class="bg-primary hover:bg-primary-hover text-surface font-semibold px-4 py-2 rounded-lg text-sm transition-colors cursor-pointer"
+      >
+        Contact
+      </button>
+    </nav>
+
+    <button
+      id="mobile-menu-button"
+      class="md:hidden text-text-muted hover:text-text p-2"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-border bg-surface px-4 pt-2 pb-6 space-y-3"
+  >
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block py-2 font-mono text-base text-text-muted hover:text-primary"
+        >
+          {link.name}
+        </a>
+      ))
+    }
+    <button
+      id="open-contact-modal-mobile"
+      class="w-full text-center bg-primary hover:bg-primary-hover text-surface font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
+    >
+      Contact
+    </button>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", String(!isOpen));
+  });
+</script>

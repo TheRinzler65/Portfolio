@@ -1,0 +1,119 @@
+---
+import ContactModal from "../components/ContactModal.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Léo Gruet — Portfolio",
+  description = "Portfolio de Léo Gruet — Diplômé BTS SIO SISR, Licence Informatique (LID) à Dole. Infrastructure, réseau, automatisation et développement.",
+  ogImage = "/assets/profile.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(ogImage, Astro.site);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Léo Gruet" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{title}</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Léo Gruet",
+        "url": "https://gruetleo.fr",
+        "jobTitle": "Étudiant Licence Informatique (LID)",
+        "description": "Infrastructure, réseau, automatisation et développement.",
+        "knowsAbout": [
+          "Administration réseau",
+          "Proxmox",
+          "pfSense",
+          "Mikrotik",
+          "Windows Server",
+          "Linux",
+          "JavaScript",
+          "HTML/CSS",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Lycée Pasteur Mont Roland"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="bg-surface text-text min-h-screen font-sans antialiased flex flex-col"
+  >
+    <Navbar />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <ContactModal />
+
+    <button
+      id="back-to-top"
+      aria-label="Retour en haut"
+      class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary hover:bg-primary-hover text-surface shadow-lg transition-all duration-300 opacity-0 pointer-events-none translate-y-2 cursor-pointer items-center justify-center flex"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </button>
+
+    <script>
+      const topBtn = document.getElementById("back-to-top");
+      window.addEventListener(
+        "scroll",
+        () => {
+          const show = window.scrollY > 300;
+          topBtn?.classList.toggle("opacity-0", !show);
+          topBtn?.classList.toggle("pointer-events-none", !show);
+          topBtn?.classList.toggle("translate-y-2", !show);
+        },
+        { passive: true },
+      );
+      topBtn?.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+    </script>
+  </body>
+</html>

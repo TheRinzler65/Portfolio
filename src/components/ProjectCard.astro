@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Badge from "./ui/Badge.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { id, data } = project;
+---
+
+<a
+  href={`/project/${id}`}
+  class="group block bg-surface-raised border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5"
+>
+  <div class="aspect-video bg-surface-overlay relative overflow-hidden">
+    {
+      data.imageproject && (
+        <img
+          src={data.imageproject}
+          alt={data.title}
+          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+      )
+    }
+    {
+      !data.imageproject && (
+        <div class="w-full h-full flex items-center justify-center text-text-muted/40">
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-12 h-12"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            />
+          </svg>
+        </div>
+      )
+    }
+  </div>
+  <div class="p-6">
+    {
+      data.year && (
+        <div class="flex items-center gap-2 mb-2">
+          <Badge>{data.year}</Badge>
+        </div>
+      )
+    }
+    <h3
+      class="text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors"
+    >
+      {data.title}
+    </h3>
+    {
+      data.description && (
+        <p class="text-sm text-text-muted line-clamp-2 mb-4">
+          {data.description}
+        </p>
+      )
+    }
+    <div class="flex flex-wrap gap-2">
+      {data.technologies.slice(0, 4).map((tech) => <Badge>{tech.name}</Badge>)}
+    </div>
+  </div>
+</a>

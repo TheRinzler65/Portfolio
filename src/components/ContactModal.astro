@@ -1,0 +1,147 @@
+---
+
+---
+
+<div
+  id="contact-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contact-modal-title"
+  class="fixed inset-0 z-50 items-center justify-center p-4 bg-surface/80 backdrop-blur-sm hidden"
+>
+  <div
+    class="bg-surface-raised border border-border rounded-2xl w-full max-w-lg p-6 relative shadow-2xl"
+  >
+    <button
+      id="close-contact-modal"
+      class="absolute top-4 right-4 text-text-muted hover:text-text text-xl font-bold"
+      aria-label="Fermer"
+    >
+      &times;
+    </button>
+
+    <h3
+      id="contact-modal-title"
+      class="font-mono text-xs text-primary tracking-widest uppercase mb-1"
+    >
+      contact
+    </h3>
+    <p class="text-text-muted text-sm mb-6">
+      Envoyez-moi un message, je répondrai rapidement.
+    </p>
+
+    <form id="contact-form" class="space-y-4" novalidate>
+      <div>
+        <label
+          for="contact-name"
+          class="block font-mono text-xs text-text-muted mb-1">nom</label
+        >
+        <input
+          type="text"
+          id="contact-name"
+          name="user_name"
+          required
+          class="w-full bg-surface border border-border rounded-lg px-3 py-2 text-text focus:outline-none focus:border-primary text-sm font-mono"
+          placeholder="Votre nom"
+        />
+      </div>
+      <div>
+        <label
+          for="contact-email"
+          class="block font-mono text-xs text-text-muted mb-1">email</label
+        >
+        <input
+          type="email"
+          id="contact-email"
+          name="user_email"
+          required
+          class="w-full bg-surface border border-border rounded-lg px-3 py-2 text-text focus:outline-none focus:border-primary text-sm font-mono"
+          placeholder="votre@email.com"
+        />
+      </div>
+      <div>
+        <label
+          for="contact-message"
+          class="block font-mono text-xs text-text-muted mb-1">message</label
+        >
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="4"
+          required
+          class="w-full bg-surface border border-border rounded-lg px-3 py-2 text-text focus:outline-none focus:border-primary text-sm font-mono resize-none"
+          placeholder="Votre message..."></textarea>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-primary hover:bg-primary-hover text-surface font-semibold py-2 rounded-lg text-sm transition-colors cursor-pointer"
+      >
+        Envoyer
+      </button>
+      <p id="form-status" class="text-center text-xs mt-2 hidden font-mono"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("contact-modal");
+  const openBtns = [
+    document.getElementById("open-contact-modal"),
+    document.getElementById("open-contact-modal-mobile"),
+    document.getElementById("hero-contact-btn"),
+  ];
+  const closeBtn = document.getElementById("close-contact-modal");
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const statusEl = document.getElementById("form-status");
+
+  function openModal() {
+    modal?.classList.remove("hidden");
+    modal?.classList.add("flex");
+    document.getElementById("contact-name")?.focus();
+  }
+  function closeModal() {
+    modal?.classList.add("hidden");
+    modal?.classList.remove("flex");
+    form?.reset();
+    if (statusEl) {
+      statusEl.classList.add("hidden");
+    }
+  }
+
+  openBtns.forEach((btn) => btn?.addEventListener("click", openModal));
+  closeBtn?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal?.classList.contains("hidden"))
+      closeModal();
+  });
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!statusEl) return;
+    statusEl.textContent = "Envoi en cours...";
+    statusEl.classList.remove("hidden", "text-red-400", "text-green-400");
+    statusEl.classList.add("text-text-muted");
+
+    try {
+      const { default: emailjs } = await import("@emailjs/browser");
+      await emailjs.sendForm(
+        import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+        form,
+        import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
+      statusEl.textContent = "Message envoyé !";
+      statusEl.classList.remove("text-text-muted");
+      statusEl.classList.add("text-green-400");
+      form.reset();
+      setTimeout(closeModal, 2000);
+    } catch {
+      statusEl.textContent = "Erreur lors de l'envoi. Réessayez.";
+      statusEl.classList.remove("text-text-muted");
+      statusEl.classList.add("text-red-400");
+    }
+  });
+</script>

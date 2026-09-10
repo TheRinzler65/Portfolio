@@ -32,6 +32,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         title="Visualisation du tableau des compétences"></iframe>
     </div>
 
+    <!-- Download links -->
+    <div class="hidden md:flex gap-4 mt-4 max-w-5xl">
+      <a
+        href="/docs/competences/tableau_de_competence.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-xs text-primary hover:text-primary-hover transition-colors"
+        >télécharger le PDF ↓</a
+      >
+      <a
+        href="/docs/competences/tableau_de_competence.xlsx"
+        class="font-mono text-xs text-text-muted hover:text-primary transition-colors"
+        >version Excel (.xlsx) ↓</a
+      >
+    </div>
+
     <!-- Mobile: download link -->
     <div
       class="md:hidden flex flex-col items-center justify-center gap-6 py-12"
@@ -71,6 +87,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         >
         Télécharger le PDF
       </a>
+      <a
+        href="/docs/competences/tableau_de_competence.xlsx"
+        class="font-mono text-xs text-text-muted hover:text-primary transition-colors"
+        >version Excel (.xlsx) ↓</a
+      >
     </div>
   </div>
 </BaseLayout>

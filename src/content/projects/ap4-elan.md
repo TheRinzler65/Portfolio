@@ -38,11 +38,17 @@ technologies:
     logo: "/assets/techno/logo_php.svg"
 documents:
   - title: "Configuration Switch - VLANs, Spanning Tree"
-    url: "/docs/ap4/Configuration%20Switch%20-%20VLANs%2C%20Spanning%20Tree%20-%20AP4.pdf"
+    url: "/docs/ap4/Configuration%20Switch%20-%20VLANs%20et%20Spanning%20Tree%20-%20AP4.pdf"
   - title: "Configuration VRRP"
     url: "/docs/ap4/Configuration%20VRRP%20-%20AP4.pdf"
   - title: "Installation GLPI"
     url: "/docs/ap4/Installation%20GLPI%20-%20AP4.pdf"
+  - title: "Installation HAProxy"
+    url: "/docs/ap4/Installation%20HAProxy%20-%20AP4.pdf"
+  - title: "Installation MariaDB & phpMyAdmin"
+    url: "/docs/ap4/Installation%20MariaDB%20et%20phpMyAdmin%20-%20AP4.pdf"
+  - title: "Installation SRV Web"
+    url: "/docs/ap4/Installation%20SRV%20Web%20-%20AP4.pdf"
   - title: "Installation Zabbix"
     url: "/docs/ap4/Installation%20Zabbix%20-%20AP4.pdf"
 demoLink: "#"
@@ -59,3 +65,9 @@ Déploiement d'une infrastructure réseau complète et hautement disponible pour
 - Supervision centralisée de l'infrastructure via Zabbix.
 - Gestion du parc et incidents via GLPI.
 - Hébergement de services web (Apache, MariaDB, PHP) et équilibrage de charge (HAProxy).
+
+### Schémas du réseau
+
+![Schéma physique du réseau](/assets/projects/ap4/Schema_Physique.png)
+
+![Schéma logique du réseau](/assets/projects/ap4/Schema_Logique.png)

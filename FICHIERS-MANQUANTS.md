@@ -8,7 +8,7 @@
 |---|---|---|---|
 | CV PDF | `public/docs/CV_GRUET_Leo.pdf` | Bouton "Télécharger mon CV" → 404 | ✅ en ligne |
 | Logo pfSense | `public/assets/techno/pfsense.png` | Logo manquant dans les compétences + AP2 | ❌ manquant |
-| Clés EmailJS | `.env` à la racine (voir `.env.example`) | Formulaire de contact → erreur d'envoi | ✅ fait |
+| Clé Web3Forms | `.env` à la racine (voir `.env.example`) — clé sur https://web3forms.com avec leo.gruet65@proton.me | Formulaire de contact → erreur d'envoi | ⚠️ à faire |
 
 ## Documents projets
 

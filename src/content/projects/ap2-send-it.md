@@ -17,11 +17,7 @@ team:
 technologies:
   - name: "Proxmox VE"
     logo: "/assets/techno/logo_proxmox.png"
-documents:
-  - title: "Documentation Proxmox"
-    url: "/docs/ap2/proxmox.pdf"
-  - title: "Configuration Firewall"
-    url: "/docs/ap2/pfsense.pdf"
+documents: []
 demoLink: "#"
 repoLink: "#"
 ---

@@ -6,7 +6,7 @@ export const skillsReseau = [
   },
   { id: 2, name: "Linux", image: "/assets/techno/linux.png" },
   { id: 3, name: "Proxmox VE", image: "/assets/techno/logo_proxmox.png" },
-  { id: 4, name: "pfSense", image: "/assets/techno/pfsense.png" },
+  { id: 4, name: "pfSense", image: "/assets/techno/pfsense.svg" },
   { id: 5, name: "Mikrotik", image: "/assets/techno/logo_mikrotik.svg" },
   { id: 6, name: "Zabbix", image: "/assets/techno/logo_zabbix.webp" },
   { id: 7, name: "GLPI", image: "/assets/techno/glpi_logo.png" },

@@ -34,6 +34,7 @@ const miscProjects = defineCollection({
     id: z.number().optional(),
     title: z.string(),
     description: z.string().default(""),
+    category: z.enum(["dev", "reseau"]).default("dev"),
     tags: z.array(z.string()).default([]),
     demoLink: z.string().nullable().optional(),
     repoLink: z.string().nullable().optional(),

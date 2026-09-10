@@ -1,16 +1,18 @@
 ---
 id: 3
-title: "db-nds-shop"
-description: "Développement d'une application homebrew sur console pour télécharger des jeux Nintendo DS, ainsi que la création d'un site web de gestion de la base de données des jeux disponibles."
+title: "NDS-Shop — écosystème homebrew Nintendo"
+description: |
+  Alternative au shop Nintendo pour DS/DSi/3DS : app homebrew 3DS (C++), port DSi (C), site web de base de données avec UniStore et API dédiée (TypeScript).
+
+  Objectif : permettre le téléchargement de homebrews directement depuis la console, avec une base de données gérable via le web.
+category: "dev"
 tags:
-  - "Base de données"
-  - "API"
-  - "Web"
-  - "Shop"
   - "Homebrew"
-  - "Nintendo DS"
-repoLink: null
+  - "C++"
+  - "C"
+  - "TypeScript"
+  - "API"
+  - "Nintendo DS/3DS"
+repoLink: "https://github.com/orgs/NDS-Shop-Homebrew/repositories"
 demoLink: null
 ---
-
-Application homebrew pour la console Nintendo DS permettant de télécharger des jeux directement depuis un serveur. Le projet inclut un site web d'administration pour gérer la base de données des jeux disponibles. Projet personnel au sein de la communauté homebrew Nintendo.

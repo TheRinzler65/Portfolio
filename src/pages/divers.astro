@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MiscCard from "../components/MiscCard.astro";
+import { getCollection } from "astro:content";
+
+const miscProjects = (await getCollection("miscProjects")).sort(
+  (a, b) => (a.data.id ?? 0) - (b.data.id ?? 0),
+);
+const reseauProjects = miscProjects.filter((p) => p.data.category === "reseau");
+const devProjects = miscProjects.filter((p) => p.data.category === "dev");
+---
+
+<BaseLayout
+  title="Divers — Portfolio"
+  description="Projets personnels de Léo Gruet : infrastructure réseau auto-hébergée et projets de développement communautaires."
+>
+  <section class="py-16 px-4 max-w-7xl mx-auto min-h-[70vh]">
+    <div class="mb-8 md:mb-12">
+      <p class="font-mono text-sm text-primary tracking-widest uppercase mb-2">
+        // divers
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-text tracking-tight">
+        Projets divers
+      </h1>
+      <p class="text-lg text-text-muted mt-2">
+        Ce que je fais en dehors du cadre scolaire — infra d'un côté, code de
+        l'autre.
+      </p>
+    </div>
+
+    <h2 class="font-mono text-xs text-primary tracking-widest uppercase mb-6">
+      // réseau & infra
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+      {reseauProjects.map((project) => <MiscCard project={project} />)}
+    </div>
+
+    <h2 class="font-mono text-xs text-primary tracking-widest uppercase mb-6">
+      // développement
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {devProjects.map((project) => <MiscCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

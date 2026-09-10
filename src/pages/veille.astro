@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+import { veilleTools, veilleBilan } from "../data/veille-meta";
+import { getCollection, render } from "astro:content";
+
+const articles = (await getCollection("veilleArticles")).sort(
+  (a, b) => (b.data.id ?? 0) - (a.data.id ?? 0),
+);
+---
+
+<BaseLayout
+  title="Veille Technologique — Portfolio"
+  description="Suivi mensuel des évolutions du déploiement et de l'infrastructure informatique."
+>
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-12">
+      <p class="font-mono text-sm text-primary tracking-widest uppercase mb-2">
+        // veille
+      </p>
+      <h1 class="text-3xl md:text-4xl font-bold text-text tracking-tight">
+        Veille technologique
+      </h1>
+      <p class="text-lg text-text-muted mt-2">
+        Suivi mensuel des évolutions du déploiement et de l'infrastructure
+      </p>
+    </div>
+
+    <div class="bg-surface-raised border border-border rounded-2xl p-8 mb-10">
+      <h3 class="font-mono text-xs text-primary tracking-widest uppercase mb-4">
+        bilan du secteur
+      </h3>
+      <p class="text-text-muted leading-relaxed mb-6">{veilleBilan.intro}</p>
+      <ul class="space-y-3 mb-6">
+        {
+          veilleBilan.points.map((point) => (
+            <li class="flex items-start gap-3 text-text-muted">
+              <span class="text-primary mt-1 font-mono">$</span>
+              <span class="leading-relaxed">{point}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p
+        class="font-mono text-sm text-primary border-l-2 border-primary pl-4 py-1"
+      >
+        {veilleBilan.conclusion}
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h3 class="font-mono text-xs text-primary tracking-widest uppercase mb-6">
+        outils de veille
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+          veilleTools.map((tool) => (
+            <div class="bg-surface-raised border border-border rounded-xl p-5 hover:border-primary/50 transition-colors flex items-center gap-4">
+              <img
+                src={tool.icon}
+                alt={tool.name}
+                class="w-10 h-10 object-contain shrink-0"
+                loading="lazy"
+                width="40"
+                height="40"
+              />
+              <div>
+                <h4 class="font-mono text-sm text-text font-bold">
+                  {tool.name}
+                </h4>
+                <p class="text-xs text-text-muted mt-1">{tool.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <h3 class="font-mono text-xs text-primary tracking-widest uppercase mb-6">
+      articles mensuels
+    </h3>
+
+    <div class="flex flex-wrap gap-2 mb-8" id="veille-tabs">
+      {
+        articles.map((article, index) => (
+          <button
+            data-tab={index}
+            class:list={[
+              "veille-tab font-mono text-xs px-4 py-2 rounded-lg transition-colors cursor-pointer",
+              index === 0
+                ? "bg-primary text-surface"
+                : "bg-surface-overlay text-text-muted hover:bg-border",
+            ]}
+          >
+            {article.data.month}
+          </button>
+        ))
+      }
+    </div>
+
+    <div id="veille-content" class="space-y-6">
+      {
+        articles.map(async (article, index) => {
+          const { Content } = await render(article);
+          return (
+            <div
+              class:list={[
+                "veille-article bg-surface-raised border border-border rounded-2xl p-6 transition-all",
+                index === 0 ? "block" : "hidden",
+              ]}
+              data-index={index}
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <Badge>{article.data.month}</Badge>
+              </div>
+              <h4 class="text-xl font-bold text-text mb-3">
+                {article.data.title}
+              </h4>
+              <p class="text-text-muted mb-4 leading-relaxed">
+                {article.data.summary}
+              </p>
+              <div class="prose prose-invert prose-neutral max-w-none text-sm mb-4 prose-headings:text-text prose-p:text-text-muted prose-a:text-primary prose-strong:text-text prose-li:text-text-muted">
+                <Content />
+              </div>
+              {article.data.sources.length > 0 && (
+                <div class="mt-4 pt-4 border-t border-border">
+                  <p class="font-mono text-xs text-text-muted mb-2">
+                    sources :
+                  </p>
+                  <div class="flex flex-wrap gap-3">
+                    {article.data.sources.map((source) => (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-mono text-xs text-primary hover:text-primary-hover transition-colors"
+                      >
+                        {source.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div class="flex flex-wrap gap-2 mt-4">
+                {article.data.tags.map((tag) => (
+                  <Badge>{tag}</Badge>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll(".veille-tab");
+  const articles = document.querySelectorAll(".veille-article");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const idx = tab.getAttribute("data-tab");
+
+      tabs.forEach((t) => {
+        t.classList.remove("bg-primary", "text-surface");
+        t.classList.add("bg-surface-overlay", "text-text-muted");
+      });
+      tab.classList.add("bg-primary", "text-surface");
+      tab.classList.remove("bg-surface-overlay", "text-text-muted");
+
+      articles.forEach((art) => {
+        art.classList.add("hidden");
+        art.classList.remove("block");
+      });
+      const target = document.querySelector(
+        `.veille-article[data-index="${idx}"]`,
+      );
+      if (target) {
+        target.classList.remove("hidden");
+        target.classList.add("block");
+      }
+    });
+  });
+</script>

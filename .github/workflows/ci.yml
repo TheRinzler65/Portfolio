@@ -36,3 +36,6 @@ jobs:
       # (tous les fichiers du dossier proviennent du build : pages, public/docs, public/assets, ...)
       - name: Sync dist/ to /var/www/portfolio/
         run: rsync -av --delete dist/ /var/www/portfolio/
+
+      - name: Reload Nginx
+        run: sudo -n systemctl reload nginx

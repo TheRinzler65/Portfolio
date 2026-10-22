@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
 
-# Évite les déploiements parallèles qui pourraient se piétiner sur rsync
 concurrency:
   group: deploy-portfolio
   cancel-in-progress: false
@@ -31,9 +30,6 @@ jobs:
         env:
           PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
 
-      # Le runner tourne sur le même CT que /var/www/portfolio, donc simple rsync local.
-      # --delete : retire les fichiers obsolètes qui ne sont plus dans le build
-      # (tous les fichiers du dossier proviennent du build : pages, public/docs, public/assets, ...)
       - name: Sync dist/ to /var/www/portfolio/
         run: rsync -av --delete dist/ /var/www/portfolio/
 

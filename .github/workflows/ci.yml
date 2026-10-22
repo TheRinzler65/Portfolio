@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    name: Build & Deploy to Proxmox CT
+    name: Build & Deploiement sur le serveur
     runs-on: [self-hosted, linux, x64]
     steps:
       - name: Checkout
@@ -22,7 +22,7 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Install dependencies
+      - name: Installation des dépendances
         run: npm ci
 
       - name: Build
@@ -30,8 +30,8 @@ jobs:
         env:
           PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
 
-      - name: Sync dist/ to /var/www/portfolio/
+      - name: Sync du build dans le répertoire du serveur
         run: rsync -av --delete dist/ /var/www/portfolio/
 
-      - name: Reload Nginx
+      - name: Redémarrage de Nginx
         run: sudo -n systemctl reload nginx
